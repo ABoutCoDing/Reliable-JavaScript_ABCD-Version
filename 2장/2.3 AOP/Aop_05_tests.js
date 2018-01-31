@@ -86,7 +86,7 @@
         };
       };
       var targetInstance = new Target();
-      var spyOnInstance = spyOn(targetInstance,'targetFn').and.callThrough();
+      var spyOnInstance = spyOn(targetInstance, 'targetFn').and.callThrough();  // targetInstance 의 targetFn 이 실행되었는가?
       Aop.around('targetFn', argPassingAdvice, targetInstance);
       targetInstance.targetFn();
       expect(spyOnInstance).toHaveBeenCalled();
