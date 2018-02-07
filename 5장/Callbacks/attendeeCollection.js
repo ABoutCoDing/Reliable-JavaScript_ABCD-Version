@@ -1,5 +1,4 @@
 ﻿// 예제 5-1
-var test = 1;
 var Conference = Conference || {};
 Conference.attendeeCollection = function() {
   "use strict";
