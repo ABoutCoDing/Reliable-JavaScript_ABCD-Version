@@ -14,6 +14,8 @@ MyApp.Human.prototype.useSignLanguage = function(message) {
     this.hands.forEach( function(hand) {
         hand.arrangeAndMove(sign);
     });
+    console.log(this instanceof MyApp.Human);
+    console.log(this instanceof MyApp.Gorilla);
     return '손을 움직여 수화하고 있어. 무슨 말인지 알겠니?';
 };
 MyApp.Gorilla = function(handFactory) {
@@ -28,5 +30,6 @@ MyApp.TeachSignLanguageToKoko = ( function() {
     var koko = new MyApp.Gorilla(handFactory);
     koko.useSignLanguage = trainer.useSignLanguage;
     // 실행결과 : '손을 움직여 수화하고 있어. 무슨 말인지 알겠니?'
+    console.log("koko : " + JSON.stringify(koko));
     console.log(koko.useSignLanguage('안녕!'));
 }());

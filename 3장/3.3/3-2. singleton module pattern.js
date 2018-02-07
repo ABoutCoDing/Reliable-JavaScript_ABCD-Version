@@ -11,4 +11,4 @@ MyApp.wildlifePreserveSimulator = (function() {
     };
 }()); // <–Immediate execution!
 
-// MyApp.wildlifePreserveSimulator.addAnimal(realAnimalMaker, gorilla, female);
+MyApp.wildlifePreserveSimulator.addAnimal(realAnimalMaker, gorilla, female);
