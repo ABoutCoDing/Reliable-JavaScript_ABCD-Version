@@ -14,9 +14,9 @@ TravelService = (function(rawWebService) {
                 return cache[homeAirport]
             }
 
-            // ticket = rawWebService.getCheapesRoundTrip (
-            //     homeAirport, conferenceAirport, maxArrival, minDeparture
-            // )
+            ticket = rawWebService.getCheapesRoundTrip (
+                homeAirport, conferenceAirport, maxArrival, minDeparture
+            )
             cache[homeAirport] = ticket
 
             return ticket

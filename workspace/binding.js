@@ -1,5 +1,5 @@
 const bruce = { name: "Bruce" };
-const madeline ={ name: "Madeline" };
+const madeline = { name: "Madeline" };
 
 function greet() {
     return `Hello, I'm ${this.name}!`;
@@ -38,10 +38,7 @@ Math.max.apply(null, arr);
 
 
 
-const newBruce = [1940, "martial artist"];
-update.call(bruce, ...newBruce);
-Math.min(...arr);
-Math.max(...arr);
+
 
 
 

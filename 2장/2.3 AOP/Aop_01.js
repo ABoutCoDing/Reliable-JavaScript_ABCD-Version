@@ -1,5 +1,5 @@
 ﻿Aop = {
   around: function(fnName, advice, fnObj) {
-    // fnObj[fnName] = advice;
+    fnObj[fnName] = advice;
   }
 };
