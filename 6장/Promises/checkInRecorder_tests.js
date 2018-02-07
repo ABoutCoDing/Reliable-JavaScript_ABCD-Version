@@ -25,7 +25,7 @@
       checkInRecorder.recordCheckIn(attendee).then(
         function promiseResolved(actualCheckInNumber) {
           expect(actualCheckInNumber).toBe(expectedCheckInNumber);
-          done();        },
+          done(); },
         function promiseRejected() {
           expect('프라미스는 버려졌다').toBe(false);
         });

@@ -26,7 +26,7 @@ Conference.checkInRecorder = function() {
               }
             }
           };
-          xhr.open("POST","/checkin/" + attendee.getId(),true);
+          xhr.open("POST","/checkin/" + attendee.getId(), true);
           xhr.send();
         } else {
           reject(new Error(messages.mustBeCheckedIn));

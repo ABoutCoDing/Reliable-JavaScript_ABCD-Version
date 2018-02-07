@@ -8,7 +8,7 @@ Conference.checkInService = function(checkInRecorder) {
 
   return {
     checkIn: function(attendee) {
-      attendee.checkIn();
+      attendee.checkIn(); // attendee.js
       recorder.recordCheckIn(attendee).then(
         // 성공
         attendee.setCheckInNumber,

@@ -16,7 +16,7 @@
     describe('checkInRecorder 성공 시', function() {
       var checkInNumber = 1234;
       beforeEach(function() {
-        spyOn(checkInRecorder,'recordCheckIn').and.callFake(function() {
+        spyOn(checkInRecorder, 'recordCheckIn').and.callFake(function() { // checkInRecorder.recordCheckIn
           return Promise.resolve(checkInNumber);
         });
       });
