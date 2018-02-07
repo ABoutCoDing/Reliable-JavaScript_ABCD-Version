@@ -48,7 +48,7 @@
       ];
       addAttendeesToCollection(attendees);
 
-      collection.iterate(callbackSpy);
+      collection.iterate(callbackSpy);  // 콜백 실행 여부 
 
       verifyCallbackWasExecutedForEachAttendee(attendees);
     });
