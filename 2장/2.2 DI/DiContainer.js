@@ -42,6 +42,6 @@ DiContainer.prototype.get = function(name) {
     var dependency = self.get(dependencyName);
     dependencies.push( dependency === undefined ? undefined : dependency);
   });
-  console.log(name + " :: " + registration.func)
+
   return registration.func.apply(undefined, dependencies);
 };

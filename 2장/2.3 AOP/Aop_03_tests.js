@@ -8,7 +8,7 @@
     targetObj = {
       targetFn: function() {
         executionPoints.push('targetFn');
-        argsToTarget = Array.prototype.slice.call(arguments, 0);
+        argsToTarget = Array.prototype.slice.call(arguments, 0);  // {"0":"a","1":"b"}
       }
     };
 

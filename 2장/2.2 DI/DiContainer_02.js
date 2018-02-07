@@ -25,5 +25,5 @@ DiContainer.prototype.register = function(name,dependencies,func) {
   }
 };
 
-// DiContainer.prototype.get = function(name) {
-// };
+DiContainer.prototype.get = function(name) {
+};

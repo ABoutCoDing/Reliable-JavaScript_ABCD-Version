@@ -9,17 +9,20 @@ TravelService = (function(rawWebService) {
 
     return {
         getSuggestedTicket: function(homeAirport) {
-            var ticket
+            var ticket = 1
             if (cache[homeAirport]) {
                 return cache[homeAirport]
             }
 
-            ticket = rawWebService.getCheapesRoundTrip (
-                homeAirport, conferenceAirport, maxArrival, minDeparture
-            )
+            // ticket = rawWebService.getCheapesRoundTrip (
+            //     homeAirport, conferenceAirport, maxArrival, minDeparture
+            // )
             cache[homeAirport] = ticket
 
             return ticket
         }
     }
 })
+
+// TravelService().getSuggestedTicket();
+

@@ -13,3 +13,5 @@ TravelService = (function(rawWebService) {
         }
     }
 })
+
+// TravelService().getSuggestedTicket();

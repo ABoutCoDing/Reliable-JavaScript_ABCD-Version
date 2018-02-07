@@ -8,7 +8,7 @@
 // 각 객체 인스턴스는 자신만의 isAwake 사본을 가진다
 Marsupial.prototype.isAwake = function(isNight) {
   return isNight === this.isNocturnal;
-}
+};
 var maverick = new Marsupial('매버릭', true);
 var slider = new Marsupial('슬라이더', false);
 

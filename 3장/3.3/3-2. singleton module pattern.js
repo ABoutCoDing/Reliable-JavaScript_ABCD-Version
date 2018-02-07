@@ -1,5 +1,5 @@
 var MyApp = MyApp || {};
-MyApp.WildlifePreserveSimulator = (function() {
+MyApp.wildlifePreserveSimulator = (function() {
     var animals = [];
     return {
         addAnimal: function(animalMaker,species, sex) {
@@ -10,3 +10,5 @@ MyApp.WildlifePreserveSimulator = (function() {
         }
     };
 }()); // <–Immediate execution!
+
+// MyApp.wildlifePreserveSimulator.addAnimal(realAnimalMaker, gorilla, female);

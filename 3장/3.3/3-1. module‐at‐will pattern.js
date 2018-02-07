@@ -1,5 +1,6 @@
 // 해당 애플리케이션에서만 사용할 수 있는 모든 객체(모듈)
 var MyApp = MyApp || {};
+console.log(MyApp)
 // 애플리케이션 이름 공간에 속한 모듈
 // The function depends on another function, animalMaker, which can
 // be injected.
@@ -16,3 +17,7 @@ MyApp.wildlifePreserveSimulator = function(animalMaker) {
         }
     };   
 };
+
+
+// var preserve = MyApp.wildlifePreserveSimulator(realAnimalMaker);
+// preserve.addAnimal(gorilla, female);

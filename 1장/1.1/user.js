@@ -28,7 +28,7 @@ Users.registration = function(){
                 user.password === "" ||
                 user.password.length < 6)
                 {
-                throw new Error("The user is not valid");
+                    throw new Error("The user is not valid");
                 }
         }
     };
