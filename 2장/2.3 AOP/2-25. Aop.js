@@ -24,7 +24,7 @@ Aop = {
     next: function() {
          return f.fn.apply(this, f.arguments);
     }
-}
+};
 
 Aop.before = function (pointcut, advice, namespaces) {
     Aop.around(pointcut, 
