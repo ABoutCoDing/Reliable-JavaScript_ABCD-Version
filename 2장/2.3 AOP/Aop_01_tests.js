@@ -10,7 +10,7 @@
         executedAdvice = true;
       };
       Aop.around('targetFn', advice, targetObj);
-      targetObj.targetFn(); // advice 실행
+      targetObj.targetFn();
       expect(executedAdvice).toBe(true);
     });
   });

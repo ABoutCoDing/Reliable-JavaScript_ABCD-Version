@@ -9,7 +9,7 @@
     targetObj = {
       targetFn: function() {
         executionPoints.push('targetFn');
-        argsToTarget = Array.prototype.slice.call(arguments, 0);
+        argsToTarget = Array.prototype.slice.call(arguments,0);
         return targetFnReturn;
       }
     };
@@ -44,7 +44,7 @@
       Aop.around('targetFn', wrappingAdvice, targetObj);
       targetObj.targetFn();
       expect(executionPoints).toEqual(
-        ['wrappingAdvice - 처음', 'targetFn', 'wrappingAdvice - 끝']);
+        ['wrappingAdvice - 처음','targetFn','wrappingAdvice - 끝']);
     });
 
     it('마지막 어드바이스가 기존의 어드바이스들에 대해 실행되는 방식으로 체이닝이 가능하다', function() {
@@ -55,8 +55,8 @@
           executionPoints.push('wrappingAdvice - 끝 '+adviceID);
         });
       };
-      Aop.around('targetFn', adviceFactory('안쪽'), targetObj);
-      Aop.around('targetFn', adviceFactory('바깥쪽'), targetObj);
+      Aop.around('targetFn',adviceFactory('안쪽'),targetObj);
+      Aop.around('targetFn',adviceFactory('바깥쪽'),targetObj);
       targetObj.targetFn();
       expect(executionPoints).toEqual([
         'wrappingAdvice - 처음 바깥쪽',
@@ -68,8 +68,8 @@
 
     it('어드바이스에서 타깃으로 일반 인자를 넘길 수 있다', function() {
       Aop.around('targetFn', argPassingAdvice, targetObj);
-      targetObj.targetFn('a', 'b');
-      expect(argsToTarget).toEqual(['a', 'b']);
+      targetObj.targetFn('a','b');
+      expect(argsToTarget).toEqual(['a','b']);
     });
 
     it("타깃의 반환값도 어드바이스에서 참조할 수 있다", function() {
@@ -86,8 +86,8 @@
         };
       };
       var targetInstance = new Target();
-      var spyOnInstance = spyOn(targetInstance, 'targetFn').and.callThrough();  // targetInstance 의 targetFn 이 실행되었는가?
-      Aop.around('targetFn', argPassingAdvice, targetInstance);
+      var spyOnInstance = spyOn(targetInstance,'targetFn').and.callThrough();
+      Aop.around('targetFn',argPassingAdvice,targetInstance);
       targetInstance.targetFn();
       expect(spyOnInstance).toHaveBeenCalled();
     });
@@ -96,7 +96,7 @@
       var advice = function() {
         expect(this).toBe(targetObj);
       };
-      Aop.around('targetFn', advice, targetObj);
+      Aop.around('targetFn',advice,targetObj);
       targetObj.targetFn();
     });
   });
