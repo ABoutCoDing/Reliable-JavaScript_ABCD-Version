@@ -3,7 +3,7 @@ Aop = {
     around: function(pointcut, advice, namespaces) {
         // 이름 공간이 없으면 전역 이름공간을 찾아내는 꼼수를 쓴다.
         if (namespaces == undefined || namespaces.length == 0) {
-            namespaces  = [(function() {return this}).call()];
+            namespaces  = [(function() {return this;}).call()];
         }
         // 이름 공간을 전부 순회한다.
         for (var i in namespaces) {
@@ -37,8 +37,8 @@ Aop.before = function (pointcut, advice, namespaces) {
 Aop.after = function (pointcut, advice, namespaces) {
     Aop.around(pointcut,
                 function(f){
-                    var ret = Aop.next.call(this, f)
-                    advice.apply(this, f.arguments)
+                    var ret = Aop.next.call(this, f);
+                    advice.apply(this, f.arguments);
                     return ret;
                 },
                 namespaces);

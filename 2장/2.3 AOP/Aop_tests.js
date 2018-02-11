@@ -16,7 +16,7 @@
     targetObj = {
       targetFn: function() {
         executionPoints.push('targetFn');
-        argsToTarget = Array.prototype.slice.call(arguments,0);
+        argsToTarget = Array.prototype.slice.call(arguments, 0);
         return targetFnReturn;
       }
     };
@@ -57,13 +57,13 @@
     it('마지막 어드바이스가 기존의 어드바이스들에 대해 실행되는 방식으로 체이닝이 가능하다', function() {
       var adviceFactory = function(adviceID) {
         return (function(targetInfo) {
-          executionPoints.push('wrappingAdvice - 처음 '+adviceID);
+          executionPoints.push('wrappingAdvice - 처음 ' + adviceID);
           targetInfo.fn();
-          executionPoints.push('wrappingAdvice - 끝 '+adviceID);
+          executionPoints.push('wrappingAdvice - 끝 ' + adviceID);
         });
       };
-      Aop.around('targetFn',adviceFactory('안쪽'),targetObj);
-      Aop.around('targetFn',adviceFactory('바깥쪽'),targetObj);
+      Aop.around('targetFn',adviceFactory('안쪽'), targetObj);
+      Aop.around('targetFn',adviceFactory('바깥쪽'), targetObj);
       targetObj.targetFn();
       expect(executionPoints).toEqual([
         'wrappingAdvice - 처음 바깥쪽',
@@ -75,8 +75,8 @@
 
     it('어드바이스에서 타깃으로 일반 인자를 넘길 수 있다', function() {
       Aop.around('targetFn', argPassingAdvice, targetObj);
-      targetObj.targetFn('a','b');
-      expect(argsToTarget).toEqual(['a','b']);
+      targetObj.targetFn('a', 'b');
+      expect(argsToTarget).toEqual(['a', 'b']);
     });
 
     it("타깃의 반환값도 어드바이스에서 참조할 수 있다", function() {
@@ -97,8 +97,8 @@
         Aop.next.call(this,targetInfo);
       };
       var targetInstance = new Target();
-      var spyOnInstance = spyOn(targetInstance,'targetFn').and.callThrough();
-      Aop.around('targetFn',advice,targetInstance);
+      var spyOnInstance = spyOn(targetInstance, 'targetFn').and.callThrough();
+      Aop.around('targetFn', advice, targetInstance);
       targetInstance.targetFn();
       expect(spyOnInstance).toHaveBeenCalled();
     });
@@ -107,27 +107,27 @@
       var advice = function() {
         expect(this).toBe(targetObj);
       };
-      Aop.around('targetFn',advice,targetObj);
+      Aop.around('targetFn', advice, targetObj);
       targetObj.targetFn();
     });
   });
 
   describe('Aop.next(context,targetInfo)', function() {
     var advice = function(targetInfo) {
-      return Aop.next.call(this,targetInfo);
+      return Aop.next.call(this, targetInfo);
     };
     var originalFn;
     beforeEach(function() {
       originalFn = targetObj.targetFn;
-      Aop.around('targetFn',advice, targetObj);
+      Aop.around('targetFn', advice, targetObj);
     });
     it('targetInfo.fn에 있는 함수를 호출한다', function() {
         targetObj.targetFn();
         expect(executionPoints).toEqual(['targetFn']);
     });
     it('targetInfo.args에 인자를 전달한다', function() {
-        targetObj.targetFn('a','b');
-        expect(argsToTarget).toEqual(['a','b']);
+        targetObj.targetFn('a', 'b');
+        expect(argsToTarget).toEqual(['a', 'b']);
     });
     it("targetInfo 함수에서 받은 값을 반환한다", function() {
         var ret = targetObj.targetFn();
@@ -135,8 +135,8 @@
     });
     it('주어진 콘텍스트에서 타깃 함수를 실행한다', function() {
         var targetInstance = new Target();
-        var spyOnInstance = spyOn(targetInstance,'targetFn').and.callThrough();
-        Aop.around('targetFn',advice,targetInstance);
+        var spyOnInstance = spyOn(targetInstance, 'targetFn').and.callThrough();
+        Aop.around('targetFn', advice, targetInstance);
         targetInstance.targetFn();
         expect(spyOnInstance).toHaveBeenCalled();
     });
@@ -151,23 +151,23 @@
         };
         Aop.before('targetFn',advice,targetObj);
         targetObj.targetFn();
-        expect(executionPoints).toEqual(['successfulAdvice','targetFn']);
+        expect(executionPoints).toEqual(['successfulAdvice', 'targetFn']);
       });
 
       it('어드바이스에 인자를 전달한다', function() {
         var argsToAdvice;
         var advice = function() {
-          argsToAdvice = Array.prototype.slice.call(arguments,0);
+          argsToAdvice = Array.prototype.slice.call(arguments, 0);
         };
-        Aop.before('targetFn',advice,targetObj);
-        targetObj.targetFn(11,22,33);
-        expect(argsToAdvice).toEqual([11,22,33]);
+        Aop.before('targetFn', advice, targetObj);
+        targetObj.targetFn(11, 22, 33);
+        expect(argsToAdvice).toEqual([11, 22, 33]);
       });
 
       it('타깃 함수에 인자를 전달한다', function() {
-        Aop.before('targetFn', function() {},targetObj);
-        targetObj.targetFn('a','b');
-        expect(argsToTarget).toEqual(['a','b']);
+        Aop.before('targetFn', function() {}, targetObj);
+        targetObj.targetFn('a', 'b');
+        expect(argsToTarget).toEqual(['a', 'b']);
       });
 
       it('마지막 어드바이스를 제일 먼저 실행하는 식으로 체이닝이 가능한다', function() {
@@ -176,14 +176,14 @@
             executionPoints.push(adviceID);
           });
         };
-        Aop.before('targetFn',adviceFactory('안쪽'),targetObj);
-        Aop.before('targetFn',adviceFactory('바깥쪽'),targetObj);
+        Aop.before('targetFn', adviceFactory('안쪽'), targetObj);
+        Aop.before('targetFn', adviceFactory('바깥쪽'), targetObj);
         targetObj.targetFn();
-        expect(executionPoints).toEqual(['바깥쪽','안쪽','targetFn']);
+        expect(executionPoints).toEqual(['바깥쪽', '안쪽', 'targetFn']);
       });
 
       it("타깃 함수를 호출하면 일반 값을 반환한다", function() {
-        Aop.before('targetFn', function() {}, targetObj);
+        Aop.before('targetFn', function(){}, targetObj);
         expect(targetObj.targetFn()).toEqual(targetFnReturn);
       });
 
@@ -191,7 +191,7 @@
         var advice = function() {
           expect(this).toBe(targetObj);
         };
-        Aop.before('targetFn',advice, targetObj);
+        Aop.before('targetFn', advice, targetObj);
         targetObj.targetFn();
       });
     });
@@ -213,12 +213,12 @@
         expect(executionPoints).toEqual(['badAdvice']);
       };
       it('다음 어드바이스는 실행되지 않는다', function() {
-        Aop.before('targetFn',goodAdvice,targetObj);
-        Aop.before('targetFn',badAdvice,targetObj);
+        Aop.before('targetFn', goodAdvice, targetObj);
+        Aop.before('targetFn', badAdvice, targetObj);
         expectJustBadAdvice();
       });
       it('타깃도 실행되지 않는다', function() {
-        Aop.before('targetFn',badAdvice,targetObj);
+        Aop.before('targetFn', badAdvice, targetObj);
         expectJustBadAdvice();
       });
     });
@@ -232,28 +232,28 @@
         var advice = function() {
            executionPoints.push('advice');
         };
-        Aop.after('targetFn',advice,targetObj);
+        Aop.after('targetFn', advice, targetObj);
         targetObj.targetFn();
-        expect(executionPoints).toEqual(['targetFn','advice']);
+        expect(executionPoints).toEqual(['targetFn', 'advice']);
       });
       it("타깃의 인자로 실행한다", function() {
         var argsToAdvice;
         var advice = function() {
-          argsToAdvice = Array.prototype.slice.call(arguments,0);
+          argsToAdvice = Array.prototype.slice.call(arguments, 0);
         };
-        Aop.after('targetFn',advice,targetObj);
-        targetObj.targetFn(11,22,33);
-        expect(argsToAdvice).toEqual([11,22,33]);
+        Aop.after('targetFn', advice, targetObj);
+        targetObj.targetFn(11, 22, 33);
+        expect(argsToAdvice).toEqual([11, 22, 33]);
       });
       it('타깃의 콘텍스트로 실행한다', function() {
         var advice = function() {
           expect(this).toBe(targetObj);
         };
-        Aop.after('targetFn',advice, targetObj);
+        Aop.after('targetFn', advice, targetObj);
         targetObj.targetFn();
       });
       it('타깃의 반환값을 반환한다', function() {
-        Aop.after('targetFn', function() {}, targetObj);
+        Aop.after('targetFn', function(){}, targetObj);
         expect(targetObj.targetFn()).toEqual(targetFnReturn);
       });
       it('최초의 어드바이스가 제일 먼저 실행되는 식으로 체이닝이 가능한다', function() {
@@ -262,10 +262,10 @@
             executionPoints.push(adviceID);
           });
         };
-        Aop.after('targetFn',adviceFactory('first'),targetObj);
-        Aop.after('targetFn',adviceFactory('second'),targetObj);
+        Aop.after('targetFn', adviceFactory('first'), targetObj);
+        Aop.after('targetFn', adviceFactory('second'), targetObj);
         targetObj.targetFn();
-        expect(executionPoints).toEqual(['targetFn','first','second']);
+        expect(executionPoints).toEqual(['targetFn', 'first', 'second']);
       });
     });
 

@@ -14,7 +14,7 @@
 Aop.before = function(fnName, advice, fnObj) {
   Aop.around(fnName,
     function(targetInfo) {
-      advice.apply(this,targetInfo.args);
+      advice.apply(this, targetInfo.args);
       return Aop.next(targetInfo);
     },
     fnObj);
