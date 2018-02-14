@@ -6,8 +6,8 @@
       attendeeB;
   beforeEach(function() {
     webApi = Conference.fakeAttendeeWebApi();
-    attendeeA = Conference.attendee('제이','이');
-    attendeeB = Conference.attendee('솔이','이');
+    attendeeA = Conference.attendee('제이', '이');
+    attendeeB = Conference.attendee('솔이', '이');
   });
   describe('post(attendee)', function() {
     it('성공 시 ID가 채번된 attendee로 귀결된다', function(done/*6장 참고*/) {

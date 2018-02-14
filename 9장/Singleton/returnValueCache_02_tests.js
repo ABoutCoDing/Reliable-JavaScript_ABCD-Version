@@ -74,7 +74,8 @@
         // 장식된 함수는 고유값 하나 당 꼭 한번씩 실행되어야 한다
         expect(testObject.spyReference.calls.count()).toBe(keyValues.length);
     });
-
+    
+    // returnValueCache_02
     it('주입된 캐시를 인스턴스 간에 공유할 수 있다', function() {
       // 공유 캐시 객체, simpleCache를 생성한다
       var sharedCache = Conference.simpleCache(),

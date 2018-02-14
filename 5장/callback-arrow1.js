@@ -1,4 +1,4 @@
-CallbackArrow = CallbackArrow || {};
+var CallbackArrow = CallbackArrow || {};
 CallbackArrow.rootFunction = function(){
     CallbackArrow.firstFunction(function(arg){
         // logic in the first callback
@@ -13,6 +13,7 @@ CallbackArrow.rootFunction = function(){
         });
     });
 };
+
 CallbackArrow.firstFunction = function(callback1){
     callback1(arg);
 };
@@ -21,7 +22,7 @@ CallbackArrow.secondFunction = function(callback2){
 };
 CallbackArrow.thirdFunction = function(callback3){
     callback3(arg);
-}
+};
 CallbackArrow.fourthFunction = function(callback4){
     callback4(arg);
 };

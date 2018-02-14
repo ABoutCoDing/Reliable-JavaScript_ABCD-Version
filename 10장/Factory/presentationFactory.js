@@ -11,7 +11,7 @@ Conference.presentationFactory = function presentationFactory() {
           p,
           ix;
       for (p in obj) {
-        if (allProperties.indexOf(p) <0) {
+        if (allProperties.indexOf(p) < 0) {
           throw new Error(
             Conference.presentationFactory.messages.unexpectedProperty + p);
         }
@@ -19,10 +19,10 @@ Conference.presentationFactory = function presentationFactory() {
       for (ix=0; ix<vendorProperties.length; ++ix) {
         if (obj.hasOwnProperty(vendorProperties[ix])) {
           return new Conference.VendorPresentation(
-            obj.title, obj.presenter, obj.vendor,obj.product);
+            obj.title, obj.presenter, obj.vendor, obj.product);
         }
       }
-      return new Conference.Presentation(obj.title,obj.presenter);
+      return new Conference.Presentation(obj.title, obj.presenter);
     }
   };
 };

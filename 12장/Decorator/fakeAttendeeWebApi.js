@@ -29,7 +29,7 @@ Conference.fakeAttendeeWebApi = function() {
     // 전체 참가자에 대한 프라미스를 반환한다.
     // 이 프라미스는 반드시 귀결되지만, 필요 시 테스트 코드에서 스파이를 심어 버리는 것도 가능하다.
     getAll: function getAll() {
-      return new Promise( function(resolve,reject) {
+      return new Promise( function(resolve, reject) {
         // 이 setTimeout은 실제 조건을 흉내내기 위해
         // post보다 지연 시간이 짧다.
         setTimeout(function pretendToGetAllFromServer() {

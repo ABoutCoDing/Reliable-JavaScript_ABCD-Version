@@ -24,8 +24,8 @@
   beforeEach(function() {
     baseWebApi = Conference.fakeAttendeeWebApi();
     decoratedWebApi = Conference.attendeeWebApiDecorator(baseWebApi);
-    attendeeA = Conference.attendee('제이','이');
-    attendeeB = Conference.attendee('솔이','이');
+    attendeeA = Conference.attendee('제이', '이');
+    attendeeB = Conference.attendee('솔이', '이');
   });
 
   describe('post(attendee)', function() {

@@ -10,7 +10,7 @@
   // decoratedWebApi.getAll()를 실행하면 프라미스가 귀결되어 반환될 것이다
   // done        - 비동기 처리 시 널리 쓰이는 재스민 done() 함수다
   // expectation - 반환된 attendees에 관한 기대식을 적용할 함수
-  function getAllWithSuccessExpectation(done,expectation) {
+  function getAllWithSuccessExpectation(done, expectation) {
     decoratedWebApi.getAll().then(
       function onSuccess(attendees) {
         expectation(attendees);
@@ -24,8 +24,8 @@
   beforeEach(function() {
     baseWebApi = Conference.fakeAttendeeWebApi();
     decoratedWebApi = Conference.attendeeWebApiDecorator(baseWebApi);
-    attendeeA = Conference.attendee('제이','이');
-    attendeeB = Conference.attendee('솔이','이');
+    attendeeA = Conference.attendee('제이', '이');
+    attendeeB = Conference.attendee('솔이', '이');
   });
 
   describe('post(attendee)', function() {
@@ -149,7 +149,7 @@
     describe('원getAll이 실패할 경우', function() {
       it('원버림 프라미스를 반환한다', function(done) {
         spyOn(baseWebApi,'getAll').and.returnValue(
-          new Promise( function(resolve,reject) {
+          new Promise( function(resolve, reject) {
             setTimeout(function() {
               reject(underlyingFailure);
             },1);

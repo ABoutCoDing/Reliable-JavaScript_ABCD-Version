@@ -14,10 +14,10 @@ Conference.checkInRecorder = function() {
     },
 
     recordCheckIn: function(attendee) {
-      return new Promise( function(resolve, reject) {
+      return new Promise(function(resolve, reject) {
         if (attendee.isCheckedIn()) {
           var xhr = new XMLHttpRequest();
-          xhr.onreadystatechange=function onreadystatechange() {
+          xhr.onreadystatechange = function onreadystatechange() {
             if (xhr.readyState == 4) {
               if (xhr.status == 200) {
                 resolve(xhr.responseText);
@@ -26,7 +26,7 @@ Conference.checkInRecorder = function() {
               }
             }
           };
-          xhr.open("POST","/checkin/" + attendee.getId(), true);
+          xhr.open("POST", "/checkin/" + attendee.getId(), true);
           xhr.send();
         } else {
           reject(new Error(messages.mustBeCheckedIn));

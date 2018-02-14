@@ -1,4 +1,4 @@
-CallbackArrow = CallbackArrow || {};
+var CallbackArrow = CallbackArrow || {};
 CallbackArrow.rootFunction = function(){
     CallbackArrow.firstFunction(CallbackArrow.firstCallback);
 };

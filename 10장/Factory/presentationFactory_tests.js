@@ -24,7 +24,7 @@
           returnedPresentation;
 
       beforeEach(function() {
-        spyOnConstructor = spyOn(Conference,'Presentation')
+        spyOnConstructor = spyOn(Conference, 'Presentation')
           .and.returnValue(fakePresentation);
         returnedPresentation = factory.create(baseParameter);
       });
@@ -54,7 +54,7 @@
         spyOnConstructor;
 
       beforeEach(function() {
-        spyOnConstructor = spyOn(Conference,'VendorPresentation')
+        spyOnConstructor = spyOn(Conference, 'VendorPresentation')
           .and.returnValue(fakeVendorPresentation);
       });
 
@@ -69,8 +69,9 @@
           param[propName] = vendorParameter[propName];
           return param;
         }
+        
         //각 vendor 프로퍼티를 차례로 지닌 파라미터를 생성한다
-        ['vendor','product'].forEach(function(propName) {
+        ['vendor', 'product'].forEach(function(propName) {
           var param = createParam(propName);
           var presentation = factory.create(param);
           expect(spyOnConstructor.calls.count()).toBe(++expectedCallCount);

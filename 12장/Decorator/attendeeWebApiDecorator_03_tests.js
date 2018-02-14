@@ -10,8 +10,8 @@
   beforeEach(function() {
     baseWebApi = Conference.fakeAttendeeWebApi();
     decoratedWebApi = Conference.attendeeWebApiDecorator(baseWebApi);
-    attendeeA = Conference.attendee('제이','이');
-    attendeeB = Conference.attendee('솔이','이');
+    attendeeA = Conference.attendee('제이', '이');
+    attendeeB = Conference.attendee('솔이', '이');
   });
 
   describe('post(attendee)', function() {
@@ -35,7 +35,7 @@
       beforeEach(function() {
         // 다음 차례가 되어서야 비로소 원post가 실패하게 만든다.
        spyOn(baseWebApi,'post').and.returnValue(
-        new Promise( function(resolve,reject) {
+        new Promise( function(resolve, reject) {
           setTimeout(function() {
             reject(underlyingFailure);
           },5);
@@ -76,7 +76,7 @@
     describe('원getAll이 성공할 경우', function() {
       it('미결 상태인 레코드가 하나도 없다면 처리된 전체 레코드에 대한 프라미스를 반환한다', function(done) {
         spyOn(baseWebApi,'getAll').and.returnValue(
-          new Promise( function(resolve,reject) {
+          new Promise( function(resolve, reject) {
             setTimeout(function() {
               resolve([attendeeA,attendeeB]);
             },1);
@@ -96,7 +96,7 @@
     describe('원getAll이 실패할 경우', function() {
       it('원버림 프라미스를 반환한다', function(done) {
         spyOn(baseWebApi,'getAll').and.returnValue(
-          new Promise( function(resolve,reject) {
+          new Promise( function(resolve, reject) {
             setTimeout(function() {
               reject(underlyingFailure);
             },1);

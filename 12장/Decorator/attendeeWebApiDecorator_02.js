@@ -14,7 +14,7 @@ Conference.attendeeWebApiDecorator = function(baseWebApi) {
 
   // attendee에 해당하는 'posts' 원소를 반환하거나
   // 그런 원소가 없을 경우 -1을 반환한다
-  function indexOfPostForSameAttendee(posts,attendee) {
+  function indexOfPostForSameAttendee(posts, attendee) {
     var ix;
     for (ix=0; ix<posts.length; ++ix) {
       if (posts[ix].isSamePersonAs(attendee)) {

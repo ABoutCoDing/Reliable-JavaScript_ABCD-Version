@@ -39,7 +39,7 @@
       var iterations = 3;
 
       for (var i = 0; i < iterations; i++) {
-        var value = testObject.testFunction.apply(testObject, args);
+        var value = testObject.testFunction.apply(testObject, args);  // testObject.testFunction(arg)
         expect(value).toBe(testValue);
       }
     });

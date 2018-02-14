@@ -18,7 +18,7 @@
       spyOn(api, 'getRestaurantsNearConference');
       service.getRestaurantsNearConference(cuisine);
       
-      var args = api.getRestaurantsNearConference.calls.argsFor (0);
+      var args = api.getRestaurantsNearConference.calls.argsFor(0); // 0번 인자
       expect(args[0]).toEqual(cuisine);
     });
     
