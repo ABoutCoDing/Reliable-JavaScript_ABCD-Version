@@ -17,12 +17,12 @@ Aop.before('forEachWithEarlyAspect',function isObjectWithLength(obj) {
   if (typeof(obj) !== 'object' || isNaN(this.length)) {
     throw new Error('forEach의 호출부는 유사 배열 타입이어야 합니다.');
   }
-},Conference.polyfills);
+}, Conference.polyfills);
 
 var objWithEarlyAspect = { /* length 프로퍼티 없음 */ };
 objWithEarlyAspect.forEach = function() {
   var args = Array.prototype.slice.call(arguments);
-  return Conference.polyfills.forEachWithEarlyAspect.apply(this,args);
+  return Conference.polyfills.forEachWithEarlyAspect.apply(this, args);
 };
 
 //-----------------------------------------------------------------
@@ -40,12 +40,12 @@ Conference.polyfills.forEachWithLateAspect = function(callbackFcn, thisObj) {
 var objWithLateAspect = { /* length 프로퍼티 없음 */ };
 objWithLateAspect.forEach = function() {
   var args = Array.prototype.slice.call(arguments);
-  return Conference.polyfills.forEachWithLateAspect.apply(this,args);
+  return Conference.polyfills.forEachWithLateAspect.apply(this, args);
 };
 
 // 'call'을 사용하기 때문에 애스팩트를 나중에 적용해도 늦은 건 아니다.
-Aop.before('forEachWithLateAspect',function isObjectWithLength(obj) {
+Aop.before('forEachWithLateAspect', function isObjectWithLength(obj) {
   if (typeof(obj) !== 'object' || isNaN(this.length)) {
   throw new Error('forEach의 호출부는 유사 배열 타입이어야 합니다.');
   }
-},Conference.polyfills);
+}, Conference.polyfills);

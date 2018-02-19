@@ -16,10 +16,10 @@ Conference.polyfills.forEachWithEarlyAspect = function(callbackFcn, thisObj) {
 Aop.before('forEachWithEarlyAspect',function isObjectWithLength(obj) {
   if (typeof(obj) !== 'object' ||
   !(typeof this.length === 'number' && isFinite(this.length) &&
-  Math.floor(this.length) === this.length && this.length>=0)) {
+  Math.floor(this.length) === this.length && this.length >= 0)) {
     throw new Error('forEach의 호출부는 유사 배열 타입이어야 합니다.');
   }
-},Conference.polyfills);
+}, Conference.polyfills);
 
 var objWithEarlyAspect = { /* length 프로퍼티 없음 */ };
 objWithEarlyAspect.forEach = Conference.polyfills.forEachWithEarlyAspect;
@@ -43,7 +43,7 @@ objWithLateAspect.forEach = Conference.polyfills.forEachWithLateAspect;
 Aop.before('forEachWithLateAspect',function isObjectWithLength(obj) {
   if (typeof(obj) !== 'object' ||
   !(typeof this.length === 'number' && isFinite(this.length) &&
-  Math.floor(this.length) === this.length && this.length>=0)) {
+  Math.floor(this.length) === this.length && this.length >= 0)) {
   throw new Error('forEach의 호출부는 유사 배열 타입이어야 합니다.');
   }
-},Conference.polyfills);
+}, Conference.polyfills);

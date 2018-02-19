@@ -22,7 +22,7 @@ Game.gameNodeContracts = function gameNodeContracts() {
 
     attachValidators: function attachValidators(registry) {
       registry.attachArgumentsValidator(
-        'gameNode', Game, ['undefined','normalPoint']);
+        'gameNode', Game, ['undefined', 'normalPoint']);
       registry.attachReturnValidator(
         'gameNode', Game, 'gameNode');
 

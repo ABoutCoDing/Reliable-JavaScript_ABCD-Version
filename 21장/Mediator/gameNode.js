@@ -9,11 +9,11 @@ Game.gameNode = function gameNode(normalPoint) {
   var point = normalPoint || Game.normalPoint(),
       connectedNodes = [];
 
-  function oneWayConnect(node,otherNode,pathIndex) {
+  function oneWayConnect(node, otherNode, pathIndex) {
     if (node.getConnectedNode(pathIndex)) {
       throw  new Error(node.messages.alreadyConnected);
     }
-    node.setConnectedNode(otherNode,pathIndex);
+    node.setConnectedNode(otherNode, pathIndex);
   }
   var ret = {
     getPoint: function getPoint() {
@@ -24,15 +24,15 @@ Game.gameNode = function gameNode(normalPoint) {
       return connectedNodes[pathIndex];
     },
 
-    setConnectedNode: function setConnectedNode( node,pathIndex) {
+    setConnectedNode: function setConnectedNode(node, pathIndex) {
       connectedNodes[pathIndex] = node;
     },
 
     // pathIndex에서 otherNode와 양방향으로 연결한다.
     // 이 노드와 otherNode가 pathIndex에서 이미 연결된 상태면 예외를 던진다.
     connect: function connect(otherNode, pathIndex) {
-      oneWayConnect(ret,otherNode, pathIndex);
-      oneWayConnect(otherNode,ret,Game.pathIndex.complementaryIndex(pathIndex));
+      oneWayConnect(ret, otherNode, pathIndex);
+      oneWayConnect(otherNode, ret, Game.pathIndex.complementaryIndex(pathIndex));
     },
 
     messages: {

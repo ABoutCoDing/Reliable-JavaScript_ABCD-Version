@@ -16,7 +16,7 @@ Game.player = function player(mediator) {
 
   function handleKeydown(e) {
     var pathIx = e.keyCode - keycodeForPath0;
-    if (pathIx>=0 && pathIx < Game.pathIndex.count) {
+    if (pathIx >= 0 && pathIx < Game.pathIndex.count) {
       me.move(pathIx);
     }
   }
@@ -36,7 +36,7 @@ Game.player = function player(mediator) {
 
     activate: function activate(elementForKeydown) {
       elementWithKeydownAttached = elementForKeydown;
-      elementWithKeydownAttached.addEventListener(listenEvent,handleKeydown);
+      elementWithKeydownAttached.addEventListener(listenEvent, handleKeydown);
     },
 
     deactivate: function deactivate() {

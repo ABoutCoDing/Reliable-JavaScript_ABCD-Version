@@ -33,18 +33,18 @@
       getNodes: function() { return gameNodes; },
       getBots: function() { return []; }
     };
-    spyOn(Game,'svgDisplay').and.returnValue(fakeDisplay);
-    spyOn(Game,'gameLogic').and.returnValue(fakeLogic);
-    spyOn(fakeDisplay,'onPlayerMoved');
-    spyOn(fakeDisplay,'endGame');
-    spyOn(fakeLogic,'onPlayerMoved');
+    spyOn(Game, 'svgDisplay').and.returnValue(fakeDisplay);
+    spyOn(Game, 'gameLogic').and.returnValue(fakeLogic);
+    spyOn(fakeDisplay, 'onPlayerMoved');
+    spyOn(fakeDisplay, 'endGame');
+    spyOn(fakeLogic, 'onPlayerMoved');
   });
 
   describe('startGame()', function() {
     it('두 플레이어를 활성화한다', function() {
       var mediator = Game.mediator();
-      spyOn(fakePlayer0,'activate');
-      spyOn(fakePlayer1,'activate');
+      spyOn(fakePlayer0, 'activate');
+      spyOn(fakePlayer1, 'activate');
       mediator.startGame();
       expect(fakePlayer0.activate).toHaveBeenCalled();
       expect(fakePlayer1.activate).toHaveBeenCalled();

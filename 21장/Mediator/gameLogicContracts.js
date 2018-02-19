@@ -21,7 +21,7 @@ Game.gameLogicContracts = function gameLogicContracts() {
           return false;
         }
         for (var ix=0; ix<thing.length; ++ix) {
-          if (!registry.fulfills(contract,thing[ix])) {
+          if (!registry.fulfills(contract, thing[ix])) {
             return false;
           }
         }
@@ -41,17 +41,17 @@ Game.gameLogicContracts = function gameLogicContracts() {
         },
         { name: 'arrayOfGameNodes',
           evaluator: function(thing) {
-            return isArrayOfContractFulfillers(thing,'gameNode');
+            return isArrayOfContractFulfillers(thing, 'gameNode');
           }
         },
         { name: 'arrayOfPlayers',
           evaluator: function(thing) {
-            return isArrayOfContractFulfillers(thing,'player');
+            return isArrayOfContractFulfillers(thing, 'player');
           }
         },
         { name: 'arrayOfBots',
           evaluator: function(thing) {
-            return isArrayOfContractFulfillers(thing,'bot');
+            return isArrayOfContractFulfillers(thing, 'bot');
           }
         },
         { name: 'evenIntegerAtLeast2',
@@ -71,13 +71,13 @@ Game.gameLogicContracts = function gameLogicContracts() {
         var instance = Aop.next(targetInfo);
 
         registry.attachReturnValidator(
-          'getPlayers',instance,'arrayOfPlayers');
+          'getPlayers', instance, 'arrayOfPlayers');
 
         registry.attachReturnValidator(
-          'getBots',instance,'arrayOfBots');
+          'getBots', instance, 'arrayOfBots');
 
         registry.attachReturnValidator(
-          'getNodes',instance,'arrayOfGameNodes');
+          'getNodes', instance, 'arrayOfGameNodes');
 
         registry.attachReturnValidator(
           'getNumPaths', instance, 'nonNegativeInteger');

@@ -34,21 +34,21 @@
 
   describe('getPlayers()', function() {
     it('객체 생성 당시 주어진 플레이어 수를 반환한다', function() {
-      var logic = Game.gameLogic(fakeMediator,rows,columns);
+      var logic = Game.gameLogic(fakeMediator, rows, columns);
       expect(logic.getPlayers().length).toBe(numPlayers);
     }) ;
   });
 
   describe('getNodes()', function() {
     it('객체 생성 당시 주어진 노드 개수를 반환한다', function() {
-      var logic = Game.gameLogic(fakeMediator,rows,columns);
+      var logic = Game.gameLogic(fakeMediator, rows, columns);
       expect(logic.getNodes().length).toBe(numNodes);
     });
   });
 
   describe('getNumPaths()', function() {
     it('객체 생성 당시 주어진 경로 개수를 반환한다', function() {
-      expect(Game.gameLogic(fakeMediator,rows,columns)
+      expect(Game.gameLogic(fakeMediator, rows, columns)
         .getNumPaths()).toBe(numPaths);
     });
   });
@@ -56,7 +56,7 @@
   describe('onPlayerMoved(player)', function() {
     var logic, nodes, player,bots, botsHit;
     beforeEach(function() {
-      logic = Game.gameLogic(fakeMediator, rows,columns);
+      logic = Game.gameLogic(fakeMediator, rows, columns);
       nodes = logic.getNodes();
       player = logic.getPlayers()[1];
       player.setNode(nodes[0]);
@@ -91,7 +91,7 @@
   describe('onBotMoveStart(bot)', function() {
     var logic, bots, ix;
     beforeEach(function() {
-      logic = Game.gameLogic(fakeMediator, rows,columns);
+      logic = Game.gameLogic(fakeMediator, rows, columns);
       bots = logic.getBots();
       spyOn(fakeMediator,'endGame');
     });
@@ -121,7 +121,7 @@
       it("봇이 잡히지 않게 한다", function() {
         var bot = bots[0],
             player = logic.getPlayers()[0];
-        spyOn(fakeMediator,'onBotHit');
+        spyOn(fakeMediator, 'onBotHit');
         logic.onBotMoveStart(bots[0]);
         player.setNode(bot.getNode());
         logic.onPlayerMoved(player);

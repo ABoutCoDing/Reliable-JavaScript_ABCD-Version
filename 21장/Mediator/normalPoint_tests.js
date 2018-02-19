@@ -17,14 +17,14 @@
     });
 
     it('yNormal이 주어지면 y를 yNormal로 세팅한다', function() {
-      var pt = normalPoint(0,0.5);
+      var pt = normalPoint(0, 0.5);
       expect(pt.y).toBe(0.5);
     });
     it('yNormal이 주어지지 않으면 y를 [0-1) 무작위값으로 세팅한다', function() {
-      spyOn(Math,'random').and.callFake(function() {
+      spyOn(Math, 'random').and.callFake(function() {
         return pretendRandomNumber;
       });
-      var pt = normalPoint(0.9,undefined);
+      var pt = normalPoint(0.9, undefined);
       expect(pt.y).toBe(pretendRandomNumber);
     });
   });

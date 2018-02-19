@@ -29,11 +29,11 @@ Game.gameLogic = function gameLogic(mediator, rows, columns) {
         nodes.push(node);
         // 이전 열과 연결한다.
         if (ixColumn>0) {
-          node.connect(nodes[nodes.length-2],pathIndex.left);
+          node.connect(nodes[nodes.length-2], pathIndex.left);
         }
         // 이전 행과 연결한다.
         if (ixRow>0) {
-          node.connect(nodes[nodes.length-1-columns],pathIndex.up);
+          node.connect(nodes[nodes.length-1-columns], pathIndex.up);
         }
       }
     }
@@ -73,7 +73,7 @@ Game.gameLogic = function gameLogic(mediator, rows, columns) {
   function makeBotUnsafe(bot) {
     var ix = safeBots.indexOf(bot);
     if (ix>=0) {
-      safeBots.splice(ix,1);
+      safeBots.splice(ix, 1);
     }
   }
 

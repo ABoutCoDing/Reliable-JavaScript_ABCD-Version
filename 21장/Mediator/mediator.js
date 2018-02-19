@@ -58,8 +58,8 @@ Game.mediator = function mediator() {
     }
   };
 
-  logic = Game.gameLogic(med,6,7);
-  display = Game.svgDisplay(med,svgElement,logic);
+  logic = Game.gameLogic(med, 6, 7);
+  display = Game.svgDisplay(med, svgElement, logic);
 
   return med;
 };

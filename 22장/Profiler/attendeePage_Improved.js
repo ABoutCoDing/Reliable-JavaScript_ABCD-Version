@@ -11,8 +11,8 @@ Conference.attendeePage = (function attendeeList() {
           'Artificial Intelligence', 'C#', 'Java', 'Agile Development',
           'Quality Assurance', 'Cloud Architecture', 'Big Data', 'AngularJS',
           '.NET', 'PHP', 'Linux','Windows','Node.js','CSS', 'HTML 5',
-          'Security','Entity Framework', 'Azure', 'AWS', 'Perl',
-          'Scalability','MVC', 'Unit Testing', 'Writing Books'].sort();
+          'Security', 'Entity Framework', 'Azure', 'AWS', 'Perl',
+          'Scalability', 'MVC', 'Unit Testing', 'Writing Books'].sort();
 
     function randomName() {
       var consonants = 'bcdfghjklmnpqrstvwxyz',
@@ -25,8 +25,8 @@ Conference.attendeePage = (function attendeeList() {
         return someLetters.charAt(Math.floor(Math.random()*someLetters.length));
       }
       for (ix=0; ix<length; ++ix) {
-        letter = randomLetterFrom(ix%2===0 ? consonants : vowels);
-        if (ix===0) {
+        letter = randomLetterFrom(ix % 2 === 0 ? consonants : vowels);
+        if (ix === 0) {
           letter = letter.toUpperCase();
         }
         name += letter;
@@ -53,7 +53,7 @@ Conference.attendeePage = (function attendeeList() {
   }
 
   function byLastNameThenFirstName(a,b) {
-      return a.getLastName().localeCompare( b.getLastName()) ||
+      return a.getLastName().localeCompare(b.getLastName()) ||
              a.getFirstName().localeCompare(b.getFirstName());
   }
 

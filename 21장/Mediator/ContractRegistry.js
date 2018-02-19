@@ -115,7 +115,7 @@ function multipleFulfills(validator, args) {
   }
 
   if (typeof validator === 'string' ) {
-    return self.fulfills(validator,args);
+    return self.fulfills(validator, args);
   }
   if (Array.isArray(validator)) {
     for (index=0; index<validator.length; ++index) {
@@ -126,14 +126,14 @@ function multipleFulfills(validator, args) {
     return validator.length === 0;
   }
   if (typeof validator === 'function' ) {
-    return validator.apply(self,args);
+    return validator.apply(self, args);
   }
 };
 
 ReliableJavaScript.ContractRegistry.prototype.multipleAssert =
 function multipleAssert(validator,args) {
   'use strict';
-  if (!this.multipleFulfills(validator,args)) {
+  if (!this.multipleFulfills(validator, args)) {
     throw new Error(ReliableJavaScript.ContractRegistry.messages.argsFailedContract);
   }
   return this;
@@ -169,7 +169,7 @@ function attachArgumentsValidator(funcName, funcObj, validator) {
   }
 
   Aop.before(funcName, function validateArguments() {
-      self.multipleAssert(validator,arguments);
+      self.multipleAssert(validator, arguments);
   }, funcObj );
 
   return this;
@@ -192,7 +192,7 @@ function attachReturnValidator(funcName, funcObj, contractName) {
   Aop.around(funcName,
     function validateReturn(targetInfo) {
       var ret = Aop.next(targetInfo);
-      self.assert(contractName,ret);
+      self.assert(contractName, ret);
       return ret;
     }, funcObj);
 
@@ -215,8 +215,8 @@ function attachPreCallValidator(funcName, funcObj, contractName) {
 
   Aop.around(funcName,
     function validateObject(targetInfo) {
-      self.assert(contractName,funcObj);
-      return Aop.next.call(funcObj,targetInfo);
+      self.assert(contractName, funcObj);
+      return Aop.next.call(funcObj, targetInfo);
     }, funcObj);
   return this;
 };
@@ -241,7 +241,7 @@ function getMessageForNameNotRegistered(
 contractName) {
   'use strict';
   return ReliableJavaScript.ContractRegistry.messages.nameMustBeRegistered
-    .replace('_',contractName);
+    .replace('_', contractName);
 };
 
 ReliableJavaScript.ContractRegistry.prototype.getMessageForFailedContract =
@@ -249,5 +249,5 @@ function getMessageForFailedContract(
 contractName, obj) {
   'use strict';
   return ReliableJavaScript.ContractRegistry.messages.failedContract
-      .replace('_',contractName)+ obj;
+      .replace('_', contractName) + obj;
 };

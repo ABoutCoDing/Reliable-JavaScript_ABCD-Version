@@ -11,9 +11,9 @@ function svgDisplay(mediator, svgElement, board) {
       playerRadius = 20,
       botRadius = 10,
       numPaths = board.getNumPaths(),
-      pathColors = ['ForestGreen','DarkMagenta'],
-      playerColors = ['Navy','DeepPink'],
-      botColors = ['White','Yellow', 'LawnGreen','HotPink','Red'],
+      pathColors = ['ForestGreen', 'DarkMagenta'],
+      playerColors = ['Navy', 'DeepPink'],
+      botColors = ['White', 'Yellow', 'LawnGreen','HotPink','Red'],
       playerElements = [], // 인덱스는 player.getId(), 값은 원소다.
       botElements = [];
 
@@ -24,13 +24,13 @@ function svgDisplay(mediator, svgElement, board) {
     return Math.floor(normalUnit * svgElement.getBoundingClientRect().width);
   }
   function addGameNode(node) {
-    var elem = document.createElementNS(svgNS,"circle"),
+    var elem = document.createElementNS(svgNS, "circle"),
         normalPoint = node.getPoint();
-    elem.setAttributeNS(null,"cx",scaleToWidth(normalPoint.x));
-    elem.setAttributeNS(null,"cy",scaleToHeight(normalPoint.y));
-    elem.setAttributeNS(null,"r",nodeRadius);
-    elem.setAttributeNS(null,"fill","black");
-    elem.setAttributeNS(null,"stroke","none");
+    elem.setAttributeNS(null, "cx", scaleToWidth(normalPoint.x));
+    elem.setAttributeNS(null, "cy", scaleToHeight(normalPoint.y));
+    elem.setAttributeNS(null, "r", nodeRadius);
+    elem.setAttributeNS(null, "fill", "black");
+    elem.setAttributeNS(null, "stroke", "none");
     svgElement.appendChild(elem);
   }
 
@@ -49,26 +49,26 @@ function svgDisplay(mediator, svgElement, board) {
         var x2 = scaleToWidth(connectedNode.getPoint().x),
             y2 = scaleToHeight(connectedNode.getPoint().y),
             color = pathColors[ix%pathColors.length];
-        elem = document.createElementNS(svgNS,"line");
-        elem.setAttributeNS(null,"x1",x1);
-        elem.setAttributeNS(null,"y1",y1);
-        elem.setAttributeNS(null,"x2",x2);
-        elem.setAttributeNS(null,"y2",y2);
-        elem.setAttributeNS(null,"style","stroke:"+color+";stroke-width:3px" );
+        elem = document.createElementNS(svgNS, "line");
+        elem.setAttributeNS(null, "x1", x1);
+        elem.setAttributeNS(null, "y1", y1);
+        elem.setAttributeNS(null, "x2", x2);
+        elem.setAttributeNS(null, "y2", y2);
+        elem.setAttributeNS(null, "style","stroke:" + color + ";stroke-width:3px" );
         svgElement.appendChild(elem);
       }
     }
   }
 
   function placeThing(thing, elementArray, radius, fill, stroke, opacity) {
-    var elem = document.createElementNS(svgNS,"circle"),
+    var elem = document.createElementNS(svgNS, "circle"),
         normalPoint = thing.getNode().getPoint();
     elem.setAttributeNS(null, "cx", scaleToWidth(normalPoint.x));
     elem.setAttributeNS(null, "cy", scaleToHeight(normalPoint.y));
-    elem.setAttributeNS(null,"r",radius);
-    elem.setAttributeNS(null,"fill",fill);
-    elem.setAttributeNS(null,"opacity",opacity);
-    elem.setAttributeNS(null,"stroke",stroke);
+    elem.setAttributeNS(null, "r", radius);
+    elem.setAttributeNS(null, "fill", fill);
+    elem.setAttributeNS(null, "opacity", opacity);
+    elem.setAttributeNS(null, "stroke", stroke);
     elementArray[thing.getId()] = elem;
     svgElement.appendChild(elem);
   }

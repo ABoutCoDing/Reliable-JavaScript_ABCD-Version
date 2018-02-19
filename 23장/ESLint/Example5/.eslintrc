@@ -3,6 +3,6 @@
       "jquery": true
     },
     "rules":{
-      "id-suffix":2  // 2: 위반하면 에러로 처리하라는 뜻이다
+      "id-suffix":2  // 2 indicates violations should be treated as errors
     }
 }

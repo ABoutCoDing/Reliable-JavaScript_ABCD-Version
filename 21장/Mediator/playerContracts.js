@@ -42,10 +42,10 @@ Game.playerContracts = function playerContracts() {
         registry.attachArgumentsValidator(
           'move', instance, ['nonNegativeInteger']);
         registry.attachReturnValidator(
-          'move',instance,'boolean');
+          'move', instance, 'boolean');
 
           return instance;
-      },Game);
+      }, Game);
     }
   };
 };

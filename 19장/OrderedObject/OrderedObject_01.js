@@ -11,6 +11,6 @@ Conference.OrderedObject.prototype.forEachKey = function(callbackFcn) {
 
   for (ix=0; ix<orderedKeys.length; ++ix) {
     propName = orderedKeys[ix];
-    callbackFcn.call(this,propName,this[propName]);
+    callbackFcn.call(this, propName, this[propName]);
   }
 };

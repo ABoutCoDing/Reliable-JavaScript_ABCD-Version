@@ -36,7 +36,7 @@ Game.normalPointContracts = function normalPointContracts() {
           'undefined,normalCoordinate',
           'normalCoordinate','normalCoordinate' ]);
 
-      registry.attachReturnValidator('normalPoint',Game,'normalPoint');
+      registry.attachReturnValidator('normalPoint', Game, 'normalPoint');
     }
   };
 };

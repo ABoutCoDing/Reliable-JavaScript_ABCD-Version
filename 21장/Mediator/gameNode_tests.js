@@ -28,8 +28,8 @@
       for (pathIndex=0; pathIndex<4; ++pathIndex) {
         var a = gameNode();
         var b = gameNode();
-        a.connect(b,pathIndex);
-        expectation(a,b,pathIndex);
+        a.connect(b, pathIndex);
+        expectation(a, b, pathIndex);
       }
     }
     function complementaryPathIndex(pathIndex) {
@@ -39,12 +39,12 @@
              1;
     }
     it('pathIndex를 통과시켜 다른 노드를 이 노드로 연결한다', function() {
-      forEachPathIndex(function(a,b,pathIndex) {
+      forEachPathIndex(function(a, b, pathIndex) {
         expect(a.getConnectedNode(pathIndex)).toBe(b);
       });
     });
     it('pathIndex의 반대로 통과시켜 다른 노드를 이 노드로 연결한다', function() {
-      forEachPathIndex(function(a,b,pathIndex) {
+      forEachPathIndex(function(a, b, pathIndex) {
         expect(b.getConnectedNode(complementaryPathIndex(pathIndex))).toBe(a);
       });
     });
@@ -53,9 +53,9 @@
       var b = gameNode();
       var c = gameNode();
       var pathIndex = 2;
-      a.connect(b,pathIndex);
+      a.connect(b, pathIndex);
       expect(function() {
-        a.connect(c,pathIndex);
+        a.connect(c, pathIndex);
       }).toThrowError(a.messages.alreadyConnected);
     });
     it('다른 노드가 pathIndex 반대에서 이미 연결되어 있으면 예외를 던진다', function() {
@@ -63,9 +63,9 @@
       var b = gameNode();
       var c = gameNode();
       var pathIndex = 2;
-      a.connect(b,pathIndex);
+      a.connect(b, pathIndex);
       expect(function() {
-        c.connect(b,pathIndex);
+        c.connect(b, pathIndex);
       }).toThrowError(c.messages.alreadyConnected);
     });
   });
