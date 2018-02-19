@@ -51,7 +51,7 @@ Conference.attendee = function(firstName, lastName) {
 
     // 이 참가자의 사본을 반환한다
     copy: function() {
-      var copy = Conference.attendee(first,last);
+      var copy = Conference.attendee(first, last);
       copy.setId(this.getId());
       copy.checkIn(this.isCheckedIn());
       copy.setCheckInNumber(this.getCheckInNumber());

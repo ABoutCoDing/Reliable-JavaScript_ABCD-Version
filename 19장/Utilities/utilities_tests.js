@@ -9,6 +9,6 @@
     },
     borrower = {};
     borrow(borrower, donor, 'subtract');
-    expect(borrower.subtract(5,2)).toBe(3);
+    expect(borrower.subtract(5, 2)).toBe(3);
   });
 });

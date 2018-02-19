@@ -92,7 +92,7 @@
       it('validator가 문자열, 문자열 배열, 함수 중 어떤 것도 아니면 예외를 던진다', function() {
         function expectThrow(badValidator) {
           expect(function() {
-            registry.multipleFulfills(badValidator,[]);
+            registry.multipleFulfills(badValidator, []);
           }).toThrow(new Error(ContractRegistry.messages.validatorsInvalid));
         }
         [ undefined,
@@ -124,8 +124,8 @@
         var validator = '어떤규약명',
             args = ['a', 'b'],
             returnFromFulfills = 'true 아니면 false겠지';
-        spyOn(registry,'fulfills').and.returnValue(returnFromFulfills);
-        expect(registry.multipleFulfills(validator,args))
+        spyOn(registry, 'fulfills').and.returnValue(returnFromFulfills);
+        expect(registry.multipleFulfills(validator, args))
           .toBe(returnFromFulfills);
         expect(registry.fulfills).toHaveBeenCalledWith(validator, args);
       });
@@ -133,10 +133,10 @@
 
     describe('validator가 배열일 경우', function() {
       function passOrFail(contractName, arg) {
-        return contractName==='passes';
+        return contractName === 'passes';
       }
       it('빈 배열이면 true를 반환한다', function() {
-        expect(registry.multipleFulfills([],[1, 2, 3]))
+        expect(registry.multipleFulfills([], [1, 2, 3]))
           .toBe(true);
       });
 
@@ -172,7 +172,7 @@
 
       it('validator에서 콤마 주위에 있는 공백은 무시한다', function() {
         var validator=['a, b, c ,   d'],
-            args = [1,2,3,4];
+            args = [1, 2, 3, 4];
         spyOn(registry,'fulfills').and.returnValue(true);
         registry.multipleFulfills(validator, args);
         expect(registry.fulfills).toHaveBeenCalledWith('a', 1);

@@ -105,12 +105,12 @@ ReliableJavaScript.ContractRegistry.prototype.getMessageForNameNotRegistered =
 function getMessageForNameNotRegistered(
 contractName) {
   return ReliableJavaScript.ContractRegistry.messages.nameMustBeRegistered
-    .replace('_',contractName);
+    .replace('_', contractName);
 };
 
 ReliableJavaScript.ContractRegistry.prototype.getMessageForFailedContract =
 function getMessageForFailedContract(
 contractName, obj) {
   return ReliableJavaScript.ContractRegistry.messages.failedContract
-      .replace('_',contractName)+ obj;
+      .replace('_', contractName) + obj;
 };

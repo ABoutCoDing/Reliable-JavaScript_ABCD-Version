@@ -9,7 +9,7 @@
     registry.define(isArray, Array.isArray);
   });
 
-  describe('define(contractName,evaluator)', function() {
+  describe('define(contractName, evaluator)', function() {
 
     it('contractName이 문자열이 아니면 예외를 던진다', function() {
       expect(function() {

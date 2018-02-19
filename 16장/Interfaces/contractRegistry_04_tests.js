@@ -9,7 +9,7 @@
     registry.define(isArray, Array.isArray);
   });
 
-  describe('define(contractName,evaluator)', function() {
+  describe('define(contractName, evaluator)', function() {
 
     it('contractName이 문자열이 아니면 예외를 던진다', function() {
       expect(function() {
@@ -25,7 +25,7 @@
 
     it('contractName이 문자열이고 evaluator가 함수면 예외를 던지지 않는다', function() {
       expect(function() {
-        registry.define('myContract', function() {});
+        registry.define('myContract', function(){});
       }).not.toThrow();
     });
   });
@@ -59,7 +59,7 @@
     });
 
     it('객체가 규약을 지키면 예외를 던지지 않는다', function() {
-      registry.assert(isArray,ary);
+      registry.assert(isArray, ary);
     });
 
     it('객체가 규약을 위반하면 예외를 던진다', function() {

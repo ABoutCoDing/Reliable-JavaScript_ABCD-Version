@@ -21,7 +21,7 @@
 
     it('contractName이 문자열이 아니면 예외를 던진다', function() {
       expect(function() {
-        registry.define(undefined, function() {});
+        registry.define(undefined, function(){});
       }).toThrow(new Error(ContractRegistry.messages.nameMustBeString));
     });
 
@@ -33,7 +33,7 @@
 
     it('contractName이 문자열이고 evaluator가 함수면 예외를 던지지 않는다', function() {
       expect(function() {
-        registry.define('myContract', function() {});
+        registry.define('myContract', function(){});
       }).not.toThrow();
     });
 

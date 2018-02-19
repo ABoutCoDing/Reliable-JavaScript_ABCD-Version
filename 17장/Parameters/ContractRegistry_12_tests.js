@@ -133,7 +133,7 @@
 
     describe('validator가 배열일 경우', function() {
       function passOrFail(contractName, arg) {
-        return contractName==='passes';
+        return contractName === 'passes';
       }
       it('빈 배열이면 true를 반환한다', function() {
         expect(registry.multipleFulfills([], [1, 2, 3]))

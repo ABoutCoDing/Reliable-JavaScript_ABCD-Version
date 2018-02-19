@@ -42,7 +42,7 @@ Game.player = function player(mediator) {
     deactivate: function deactivate() {
       if (elementWithKeydownAttached) {
         elementWithKeydownAttached.removeEventListener(
-            listenEvent,handleKeydown);
+            listenEvent, handleKeydown);
       }
     },
 

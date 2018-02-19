@@ -131,7 +131,7 @@ function svgDisplay(mediator, svgElement, board) {
       }
       elem.setAttribute("cx", x);
       elem.setAttribute("cy", y);
-      if (x===endX && y===endY) {
+      if (x === endX && y === endY) {
         stopAnimation();
       }
     }

@@ -21,9 +21,10 @@
         new Promise( function(resolve, reject) {
           setTimeout(function() {
             reject(underlyingFailure);
-          },5);
+          }, 5);
         }));
       });
+
       it('원사유로 인해 버려진 프라미스를 반환한다', function(done) {
         decoratedWebApi.post(attendeeA).then(
           function onSuccessfulPost() {
@@ -35,6 +36,7 @@
             done();
           });
       });
+
     });
     describe('전송한 참가자에 대해서만 호출할 때', function() {
       it('버림 프라미스를 반환한다', function(done) {
@@ -62,8 +64,9 @@
           new Promise( function(resolve, reject) {
             setTimeout(function() {
               reject(underlyingFailure);
-            },1);
+            }, 1);
           }));
+          
         decoratedWebApi.getAll().then(
           function onSuccess() {
             expect('원getAll 함수 성공').toBe(false);

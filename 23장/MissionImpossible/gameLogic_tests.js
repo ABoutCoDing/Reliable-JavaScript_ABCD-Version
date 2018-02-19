@@ -3,7 +3,7 @@
 
   var mediator = '내가 중재자라고 합시다',
       player = '내가 플레이어라고 합시다',
-      gameLogic = Game.gameLogic(mediator,6, 7);
+      gameLogic = Game.gameLogic(mediator, 6, 7);
 
   describe('onPlayerMoved(magicKey, player)', function() {
 

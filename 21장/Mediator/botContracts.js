@@ -14,7 +14,7 @@ Game.botContracts = function botContracts() {
 
       function isGameNodeOrUndefined(thing) {
         return typeof thing === 'undefined' ||
-          registry.fulfills('gameNode',thing);
+          registry.fulfills('gameNode', thing);
       }
 
       return [

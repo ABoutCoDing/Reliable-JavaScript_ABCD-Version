@@ -27,7 +27,7 @@ Conference.attendeeWebApiDecorator = function(baseWebApi) {
   return {
 
     post: function post(attendee) {
-      if (indexOfPostForSameAttendee(pendingPosts, attendee) >=0 ) {
+      if (indexOfPostForSameAttendee(pendingPosts, attendee) >= 0 ) {
         return Promise.reject(new Error(messages.postPending));
       }
 
@@ -40,7 +40,7 @@ Conference.attendeeWebApiDecorator = function(baseWebApi) {
       return baseWebApi.getAll().then(function(records) {
         pendingPosts.forEach(function(pending) {
           var ix = indexOfPostForSameAttendee(records, pending);
-          if (ix<0) {
+          if (ix < 0) {
             records.push(pending);
           }
         });

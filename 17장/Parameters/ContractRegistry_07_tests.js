@@ -56,7 +56,7 @@
     });
 
     it('객체가 규약을 지키면 true를 반환한다', function() {
-      expect(registry.fulfills(isArray,ary)).toBe(true);
+      expect(registry.fulfills(isArray, ary)).toBe(true);
     });
 
     it('객체가 규약을 위반하면 false를 반환한다', function() {
@@ -170,7 +170,7 @@
               12345, funcObj, isArray);
           }).toThrow(new Error(ContractRegistry.messages.funcNameMustBeString));
         }
-        [undefined, function() {},123].forEach(expectThrow);
+        [undefined, function(){}, 123].forEach(expectThrow);
       });
 
       it('funcObj가 함수가 아닐 경우 예외를 던진다', function() {

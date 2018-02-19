@@ -6,7 +6,7 @@
 
   beforeEach(function() {
     registry = new ReliableJavaScript.ContractRegistry();
-    registry.define(isArray,Array.isArray);
+    registry.define(isArray, Array.isArray);
   });
 
   describe('생성', function() {
@@ -85,7 +85,7 @@
     });
   });
 
-  describe('multipleFulfills(validator,args)', function() {
+  describe('multipleFulfills(validator, args)', function() {
 
     describe('인자 검사 기능', function() {
 
@@ -188,7 +188,7 @@
               12345, funcObj, isArray);
           }).toThrow(new Error(ContractRegistry.messages.funcNameMustBeString));
         }
-        [undefined, function() {},123].forEach(expectThrow);
+        [undefined, function(){}, 123].forEach(expectThrow);
       });
 
       it('funcObj가 함수가 아닐 경우 예외를 던진다', function() {

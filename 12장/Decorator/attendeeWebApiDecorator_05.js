@@ -50,7 +50,7 @@ Conference.attendeeWebApiDecorator = function(baseWebApi) {
       return baseWebApi.getAll().then(function(records) {
         pendingPosts.forEach(function(pending) {
           var ix = indexOfPostForSameAttendee(records, pending);
-          if (ix<0) {
+          if (ix < 0) {
             records.push(pending);
           }
         });

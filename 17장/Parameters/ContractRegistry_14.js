@@ -122,7 +122,7 @@ function attachArgumentsValidator(funcName, funcObj, validator) {
   }
 
   Aop.before(funcName, function validateArguments() {
-      self.multipleAssert(validator,arguments);
+      self.multipleAssert(validator, arguments);
   }, funcObj );
 
   return this;

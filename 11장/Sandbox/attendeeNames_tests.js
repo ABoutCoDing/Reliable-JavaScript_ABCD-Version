@@ -86,7 +86,7 @@
       var rejectionReason = "버림받은 이유";
 
       spyOn(attendeeWebApi, 'getAll').and.returnValue(
-        new Promise( function(resolve, reject) {
+        new Promise(function(resolve, reject) {
           reject(rejectionReason);
         })
       );

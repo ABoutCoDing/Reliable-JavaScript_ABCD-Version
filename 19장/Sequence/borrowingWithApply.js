@@ -8,7 +8,7 @@ Conference.polyfills = Conference.polyfills || {};
 Conference.polyfills.forEachWithEarlyAspect = function(callbackFcn, thisObj) {
   var i;
 
-  for (i = 0; i < this.length; i++) {
+  for (i=0; i<this.length; i++) {
     callbackFcn.call(thisObj, this[i], i, this);
   }
 };

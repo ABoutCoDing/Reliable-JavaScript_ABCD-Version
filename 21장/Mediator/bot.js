@@ -35,7 +35,7 @@ Game.bot = function bot(mediator) {
             availablePaths.push(pathIx);
           }
         }
-        choiceIx=Math.floor(Math.random()*availablePaths.length);
+        choiceIx = Math.floor(Math.random()*availablePaths.length);
         pathIx = availablePaths[choiceIx];
         me.setNode(node.getConnectedNode(pathIx));
         mediator.onBotMoveStart(me);

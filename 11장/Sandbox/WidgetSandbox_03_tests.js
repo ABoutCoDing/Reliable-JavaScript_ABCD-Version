@@ -42,24 +42,21 @@
       });
 
       it("sandbox를 인자로 위젯 함수를 실행한다", function() {
-        var sandbox = new Conference.WidgetSandbox(['tool1', 'tool2'],
-          widgetFcnSpy);
+        var sandbox = new Conference.WidgetSandbox(['tool1', 'tool2'], widgetFcnSpy);
         expect(widgetFcnSpy).toHaveBeenCalledWith(sandbox);
       });
 
       it("올바르지 않은 도구를 지정하면 예외를 던진다", function() {
         var badTool = 'badTool';
         expect(function shouldThrow() {
-          var sandbox = new Conference.WidgetSandbox(['tool1', badTool],
-            widgetFcnSpy);
+          var sandbox = new Conference.WidgetSandbox(['tool1', badTool], widgetFcnSpy);
         }).toThrowError(Conference.WidgetSandbox.messages.unknownTool+badTool);
       });
 
       it("도구 모듈 함수를 sandbox에서 실행한다", function() {
         spyOn(Conference.WidgetTools, 'tool1');
         spyOn(Conference.WidgetTools, 'tool2');
-        var sandbox = new Conference.WidgetSandbox(['tool1', 'tool2'],
-          widgetFcnSpy);
+        var sandbox = new Conference.WidgetSandbox(['tool1', 'tool2'], widgetFcnSpy);
         expect(Conference.WidgetTools.tool1)
           .toHaveBeenCalledWith(sandbox);
         expect(Conference.WidgetTools.tool2)
@@ -79,8 +76,7 @@
       });
 
       it("sandbox를 인자로 위젯 함수를 실행한다", function() {
-        var sandbox = new Conference.WidgetSandbox('tool1', 'tool2',
-          widgetFcnSpy);
+        var sandbox = new Conference.WidgetSandbox('tool1', 'tool2', widgetFcnSpy);
         expect(widgetFcnSpy).toHaveBeenCalledWith(sandbox);
       });
     });

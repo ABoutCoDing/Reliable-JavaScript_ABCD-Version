@@ -21,7 +21,7 @@
 
     it('contractName이 문자열이 아니면 예외를 던진다', function() {
       expect(function() {
-        registry.define(undefined, function() {});
+        registry.define(undefined, function(){});
       }).toThrow(new Error(ContractRegistry.messages.nameMustBeString));
     });
 
@@ -33,7 +33,7 @@
 
     it('contractName이 문자열이고 evaluator가 함수면 예외를 던지지 않는다', function() {
       expect(function() {
-        registry.define('myContract', function() {});
+        registry.define('myContract', function(){});
       }).not.toThrow();
     });
 
@@ -163,7 +163,7 @@
 
       it('원소가 하나뿐인 배열에서 필요 이상 규약을 평가하지 않는다', function() {
         var validator=['passes,fails,passes'],
-            args = [1,2,3];
+            args = [1, 2, 3];
         spyOn(registry, 'fulfills').and.callFake(passOrFail);
         expect(registry.multipleFulfills(validator, args)).toBe(false);
         // 두 번째 인자가 실패하면 false로 확정되므로 2회만 호출된다

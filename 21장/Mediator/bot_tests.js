@@ -33,10 +33,10 @@
           nodeA = Game.gameNode(),
           nodeB = Game.gameNode();
       for (var pathIndex=0; pathIndex<3; ++pathIndex) {
-        nodeA.connect(nodeB,pathIndex);
+        nodeA.connect(nodeB, pathIndex);
       }
       bot.setNode(nodeA);
-      spyOn(fakeMediator,'onBotMoveStart');
+      spyOn(fakeMediator, 'onBotMoveStart');
       bot.setMoveInterval(freq);
 
       jasmine.clock().tick(freq*100 /*100분의 1초*/);

@@ -9,7 +9,7 @@
     it('"new"를 사용하지 않으면 예외를 던진다', function() {
       expect(function createWithoutNew() {
         Conference.VendorPresentation(title, presenter);
-      }).toThrowError( Conference.VendorPresentation.messages.mustUseNew);
+      }).toThrowError(Conference.VendorPresentation.messages.mustUseNew);
     });
 
     it('"new"를 사용하면 성공한다', function() {

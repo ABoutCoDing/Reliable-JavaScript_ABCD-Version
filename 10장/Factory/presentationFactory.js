@@ -5,7 +5,7 @@ Conference.presentationFactory = function presentationFactory() {
     // obj 인자의 프로퍼티에 따라
     // 하나의 Presentation 또는 그 하위 Presentation 중 하나를 생성한다
     create: function(obj) {
-      var baseProperties = [ 'title', 'presenter'],
+      var baseProperties = ['title', 'presenter'],
           vendorProperties = ['vendor', 'product'],
           allProperties = baseProperties.concat(vendorProperties),
           p,

@@ -19,7 +19,7 @@
           new Promise( function(resolve, reject) {
             setTimeout(function() {
               reject(underlyingFailure);
-            },1);
+            }, 1);
           }));
 
         decoratedWebApi.getAll().then(

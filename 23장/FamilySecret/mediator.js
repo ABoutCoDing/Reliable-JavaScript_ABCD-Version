@@ -42,8 +42,8 @@ Game.mediator = function mediator() {
 
       svgElement = document.getElementById('gameSvg');
 
-  logic = Game.gameLogic(med,6,7);
-  display = Game.svgDisplay(med,svgElement,logic);
+  logic = Game.gameLogic(med, 6, 7);
+  display = Game.svgDisplay(med, svgElement, logic);
 
   return med;
 };

@@ -45,7 +45,7 @@ function multipleFulfills(validator, args) {
     var ix,
         contractNames = v.split(',');
     for (ix=0; ix<contractNames.length; ++ix) {
-      if (!self.fulfills(contractNames[ix],args[ix])) {
+      if (!self.fulfills(contractNames[ix], args[ix])) {
         return false;
       }
     }

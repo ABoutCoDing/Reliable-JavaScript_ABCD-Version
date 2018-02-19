@@ -76,7 +76,7 @@
         {name: 'abc', evaluator: function() {return true;}},
         {name: 'abc', evaluator: function() {return false;}},
       ];
-      spyOn(registry,'define');
+      spyOn(registry, 'define');
       registry.defineMultiple(contracts);
       expect(registry.define.calls.count()).toBe(2);
       contracts.forEach(function(c) {
@@ -215,8 +215,8 @@
       it('원소가 하나뿐인 배열에서 필요 이상 규약을 평가하지 않는다', function() {
         var validator=['passes,fails,passes'],
             args = [1, 2, 3];
-        spyOn(registry,'fulfills').and.callFake(passOrFail);
-        expect(registry.multipleFulfills(validator,args)).toBe(false);
+        spyOn(registry, 'fulfills').and.callFake(passOrFail);
+        expect(registry.multipleFulfills(validator, args)).toBe(false);
         // 두 번째 인자가 실패하면 false로 확정되므로 2회만 호출된다
         expect(registry.fulfills.calls.count()).toBe(2);
       });
@@ -378,7 +378,7 @@
           return this.prop === 123;
         }
         registry.attachArgumentsValidator('func', obj, validator);
-        spyOn(registry,'multipleAssert').and.callFake(function(val, args) {
+        spyOn(registry, 'multipleAssert').and.callFake(function(val, args) {
           expect(val).toBe(validator);
           expect(args.length).toBe(2);
           expect(args[0]).toBe('a');

@@ -9,7 +9,7 @@
     });
 
     it("target.getId가 이미 존재할 경우 예외를 던진다", function() {
-      target.getId = function getId() { };
+      target.getId = function getId(){};
       expect(function shouldThrow() {
         Conference.mixins.addId.call(target);
       }).toThrowError(

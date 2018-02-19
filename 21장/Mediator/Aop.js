@@ -19,14 +19,14 @@ Aop = {
   },
 
   next: function(targetInfo) {
-    return targetInfo.fn.apply(this,targetInfo.args);
+    return targetInfo.fn.apply(this, targetInfo.args);
   }
 };
 
 Aop.before = function before(fnName, advice, fnObj) {
   Aop.around(fnName,
     function beforeAdvice(targetInfo) {
-      advice.apply(this,targetInfo.args);
+      advice.apply(this, targetInfo.args);
       return Aop.next(targetInfo);
     },
     fnObj);
@@ -36,7 +36,7 @@ Aop.after = function after(fnName, advice, fnObj) {
   Aop.around(fnName,
      function afterAdvice(targetInfo) {
        var ret = Aop.next(targetInfo);
-       advice.apply(this,targetInfo.args);
+       advice.apply(this, targetInfo.args);
        return ret;
      },
      fnObj);

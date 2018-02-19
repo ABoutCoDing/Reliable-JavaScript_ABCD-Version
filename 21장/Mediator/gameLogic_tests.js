@@ -6,10 +6,10 @@
       numPlayers = 2,
       numPaths = Game.pathIndex.count,
       fakeMediator = {
-        onPlayerMoved: function(player) {},
-        onBotMoveStart: function(bot) {},
-        onBotHit: function(bot) {},
-        endGame: function() {},
+        onPlayerMoved: function(player){},
+        onBotMoveStart: function(bot){},
+        onBotHit: function(bot){},
+        endGame: function(){},
       };
   describe('생성', function() {
     it('정확한 개수의 노드를 생성한다', function() {
@@ -65,7 +65,7 @@
         bot.setNode(nodes[2]); // 방해되지 않게.
       });
       botsHit = [];
-      spyOn(fakeMediator,'onBotHit').and.callFake(function(bot) {
+      spyOn(fakeMediator, 'onBotHit').and.callFake(function(bot) {
         botsHit.push(bot);
       });
     });
@@ -93,7 +93,7 @@
     beforeEach(function() {
       logic = Game.gameLogic(fakeMediator, rows, columns);
       bots = logic.getBots();
-      spyOn(fakeMediator,'endGame');
+      spyOn(fakeMediator, 'endGame');
     });
     describe("봇의 새 노드가 undefined일 경우", function() {
       it("이 봇이 마지막 봇이 아닐 경우 mediator.endGame를 호출하지 않는다", function() {

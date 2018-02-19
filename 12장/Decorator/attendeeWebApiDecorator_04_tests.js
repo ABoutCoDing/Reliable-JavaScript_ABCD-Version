@@ -46,15 +46,17 @@
     });
 
     describe('원post가 실패할 경우', function() {
+
       beforeEach(function() {
         // 다음 차례가 되어서야 비로소 원 post가 실패하게 만든다.
-       spyOn(baseWebApi,'post').and.returnValue(
+       spyOn(baseWebApi, 'post').and.returnValue(
         new Promise( function(resolve, reject) {
           setTimeout(function() {
             reject(underlyingFailure);
-          },1);
+          }, 1);
         }));
       });
+
       it('원사유로 인해 버려진 프라미스를 반환한다', function(done) {
         decoratedWebApi.post(attendeeA).then(
           function onSuccessfulPost() {
@@ -67,6 +69,7 @@
           });
       });
     });
+
     describe('전송한 참가자에 대해서만 호출할 때', function() {
       it('버림 프라미스를 반환한다', function(done) {
         decoratedWebApi.post(attendeeA);
@@ -99,6 +102,7 @@
           expect(attendees.length).toBe(2);
         });
       });
+
       it('처리된 전체 레코드 + 미결 상태인 전체 레코드를 반환한다', function(done) {
         decoratedWebApi.post(attendeeA).then(function() {
           decoratedWebApi.post(attendeeB); // 놔둔다.
@@ -117,8 +121,9 @@
           new Promise( function(resolve, reject) {
             setTimeout(function() {
               reject(underlyingFailure);
-            },1);
+            }, 1);
           }));
+
         decoratedWebApi.getAll().then(
           function onSuccess() {
             expect('원getAll 함수 성공').toBe(false);

@@ -30,7 +30,7 @@ Game.gameNodeContracts = function gameNodeContracts() {
         var instance = Aop.next(targetInfo);
 
         registry.attachReturnValidator(
-          'getPoint',instance,'normalPoint');
+          'getPoint', instance, 'normalPoint');
         registry.attachArgumentsValidator(
           'getConnectedNode', instance, ['nonNegativeInteger']);
         registry.attachArgumentsValidator(

@@ -88,7 +88,7 @@
     });
   });
 
-  describe('fulfills(contractName,obj)', function() {
+  describe('fulfills(contractName, obj)', function() {
 
     it('contractName이 레지스트리에 없으면 예외를 던진다', function() {
       function expectThrow(contractName) {
@@ -109,7 +109,7 @@
     });
 
     it('규약명은 사용 전 트리밍한다', function() {
-      expect(registry.fulfills('  '+isArray+'  ',ary)).toBe(true);
+      expect(registry.fulfills('  ' + isArray + '  ',ary)).toBe(true);
     });
   });
 
@@ -170,14 +170,14 @@
     });
 
     describe('validator가 문자열일 경우', function() {
-      it('fulfills(validator,args)의 결과를 반환한다', function() {
+      it('fulfills(validator, args)의 결과를 반환한다', function() {
         var validator = '어떤규약명',
             args = ['a', 'b'],
             returnFromFulfills = 'true 아니면 false겠지';
-        spyOn(registry,'fulfills').and.returnValue(returnFromFulfills);
-        expect(registry.multipleFulfills(validator,args))
+        spyOn(registry, 'fulfills').and.returnValue(returnFromFulfills);
+        expect(registry.multipleFulfills(validator, args))
           .toBe(returnFromFulfills);
-        expect(registry.fulfills).toHaveBeenCalledWith(validator,args);
+        expect(registry.fulfills).toHaveBeenCalledWith(validator, args);
       });
     });
 
@@ -186,7 +186,7 @@
         return contractName === 'passes';
       }
       it('빈 배열이면 true를 반환한다', function() {
-        expect(registry.multipleFulfills([],[1, 2, 3]))
+        expect(registry.multipleFulfills([], [1, 2, 3]))
           .toBe(true);
       });
 
@@ -204,7 +204,7 @@
         var validator=['passes,fails,passes'],
             args = [1, 2, 3];
         spyOn(registry, 'fulfills').and.callFake(passOrFail);
-        expect(registry.multipleFulfills(validator,args)).toBe(false);
+        expect(registry.multipleFulfills(validator, args)).toBe(false);
         expect(registry.fulfills).toHaveBeenCalledWith('passes', 1);
         expect(registry.fulfills).toHaveBeenCalledWith('fails', 2);
         // 두 번째 인자가 실패하면 false로 확정되므로 2회만 호출된다
@@ -223,7 +223,7 @@
       it('validator에서 콤마 주위에 있는 공백은 무시한다', function() {
         var validator=['a, b, c ,   d'],
             args = [1, 2, 3, 4];
-        spyOn(registry,'fulfills').and.returnValue(true);
+        spyOn(registry, 'fulfills').and.returnValue(true);
         registry.multipleFulfills(validator,args);
         expect(registry.fulfills).toHaveBeenCalledWith('a', 1);
         expect(registry.fulfills).toHaveBeenCalledWith('b', 2);
@@ -330,7 +330,7 @@
               12345, funcObj, contractNames);
           }).toThrow(new Error(ContractRegistry.messages.funcNameMustBeString));
         }
-        [undefined, function() {},123].forEach(expectThrow);
+        [undefined, function(){}, 123].forEach(expectThrow);
       });
 
       it('funcObj가 함수가 아닐 경우 예외를 던진다', function() {

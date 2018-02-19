@@ -26,7 +26,7 @@ Conference.attendeePage = (function attendeeList() {
       }
       for (ix=0; ix<length; ++ix) {
         letter = randomLetterFrom(ix%2===0 ? consonants : vowels);
-        if (ix===0) {
+        if (ix === 0) {
           letter = letter.toUpperCase();
         }
         name += letter;

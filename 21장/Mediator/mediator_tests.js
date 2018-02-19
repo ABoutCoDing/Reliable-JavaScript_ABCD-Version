@@ -76,12 +76,12 @@
           logicMoveBotStarted = false,
           displayMovedBot = false;
       bot.setNode(node); // 여기로 이동한 것처럼 하자.
-      spyOn(fakeLogic,'onBotMoveStart').and.callFake(function(bot) {
+      spyOn(fakeLogic, 'onBotMoveStart').and.callFake(function(bot) {
         expect(logicMoveBotStarted).toBe(false);
         expect(displayMovedBot).toBe(false);
         logicMoveBotStarted = true;
       });
-      spyOn(fakeDisplay,'onBotMoveStart').and.callFake(function(bot) {
+      spyOn(fakeDisplay, 'onBotMoveStart').and.callFake(function(bot) {
         expect(logicMoveBotStarted).toBe(true);
         expect(displayMovedBot).toBe(false);
         displayMovedBot = true;
@@ -96,7 +96,7 @@
     it('게임 로직으로 하려금 봇들을 그만 움직이게 한다', function() {
       var mediator = Game.mediator(),
           bot = Game.bot(mediator);
-      spyOn(fakeLogic,'onBotMoveEnd');
+      spyOn(fakeLogic, 'onBotMoveEnd');
       mediator.onBotMoveEnd(bot);
       expect(fakeLogic.onBotMoveEnd).toHaveBeenCalledWith(bot);
     });
@@ -109,8 +109,8 @@
       mediator = Game.mediator();
       bot = Game.bot(mediator);
       bot.setNode(node);
-      spyOn(fakeLogic,'onBotMoveStart');
-      spyOn(fakeDisplay,'onBotMoveStart');
+      spyOn(fakeLogic, 'onBotMoveStart');
+      spyOn(fakeDisplay, 'onBotMoveStart');
       mediator.onBotHit(bot);
     });
     it('노드를 undefined로 세팅한다', function() {
@@ -131,15 +131,15 @@
       fakeElement = {
         removeEventListener: function() {}
       };
-      spyOn(document,'getElementById').and.returnValue(fakeElement);
-      spyOn(fakeElement,'removeEventListener');
+      spyOn(document, 'getElementById').and.returnValue(fakeElement);
+      spyOn(fakeElement, 'removeEventListener');
       jasmine.clock().install();
     });
     afterEach(jasmine.clock().uninstall);
     it('두 플레이어를 비활성화한다', function() {
       var mediator = Game.mediator();
-      spyOn(fakePlayer0,'deactivate');
-      spyOn(fakePlayer1,'deactivate');
+      spyOn(fakePlayer0, 'deactivate');
+      spyOn(fakePlayer1, 'deactivate');
       mediator.endGame();
       expect(fakePlayer0.deactivate).toHaveBeenCalled();
       expect(fakePlayer1.deactivate).toHaveBeenCalled();

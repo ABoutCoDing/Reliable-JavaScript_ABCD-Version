@@ -52,7 +52,7 @@ Conference.attendeePage = (function attendeeList() {
     }
   }
 
-  function byLastNameThenFirstName(a,b) {
+  function byLastNameThenFirstName(a, b) {
       return a.getLastName().localeCompare(b.getLastName()) ||
              a.getFirstName().localeCompare(b.getFirstName());
   }

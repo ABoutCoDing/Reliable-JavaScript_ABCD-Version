@@ -44,7 +44,7 @@
         expect(player.getNode()).toBe(newNode);
       });
       it('중재자에게 이동 사실을 알린다', function() {
-        spyOn(fakeMediator,'onPlayerMoved');
+        spyOn(fakeMediator, 'onPlayerMoved');
         player.move(pathIndex);
         expect(fakeMediator.onPlayerMoved).toHaveBeenCalledWith(player);
       });

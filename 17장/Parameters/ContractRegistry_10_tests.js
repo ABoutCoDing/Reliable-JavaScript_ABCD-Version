@@ -142,7 +142,7 @@
 
       it('validator가 원소가 하나뿐인 배열이고 해당 규약이 모두 pass면 true를 반환한다', function() {
         var validator=['passes,passes,passes'],
-            args = [1,2,3];
+            args = [1, 2, 3];
         spyOn(registry, 'fulfills').and.callFake(passOrFail);
         expect(registry.multipleFulfills(validator, args)).toBe(true);
         expect(registry.fulfills).toHaveBeenCalledWith('passes', 1);
@@ -152,7 +152,7 @@
 
       it('validator가 원소가 하나뿐인 배열이고 해당 규약 중 하나가 fail이면 false를 반환한다', function() {
         var validator=['passes,fails,passes'],
-            args = [1,2,3];
+            args = [1, 2, 3];
         spyOn(registry,'fulfills').and.callFake(passOrFail);
         expect(registry.multipleFulfills(validator, args)).toBe(false);
         expect(registry.fulfills).toHaveBeenCalledWith('passes', 1);

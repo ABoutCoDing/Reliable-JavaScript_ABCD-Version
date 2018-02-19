@@ -132,10 +132,10 @@
         spyOn(baseWebApi, 'getAll').and.returnValue(
           new Promise( function(resolve, reject) {
             setTimeout(function() {
-              resolve([attendeeA,attendeeB]);
-            },1);
+              resolve([attendeeA, attendeeB]);
+            }, 1);
           }));
-        getAllWithSuccessExpectation(done,function onSuccess(attendees) {
+        getAllWithSuccessExpectation(done, function onSuccess(attendees) {
           expect(attendees.length).toBe(2);
         });
       });
@@ -143,7 +143,7 @@
       it('처리된 전체 레코드 + 미결 상태인 전체 레코드를 반환한다', function(done) {
         decoratedWebApi.post(attendeeA).then(function() {
           decoratedWebApi.post(attendeeB); // 놔둔다.
-          getAllWithSuccessExpectation(done,function onSuccess(attendees) {
+          getAllWithSuccessExpectation(done, function onSuccess(attendees) {
             expect(attendees.length).toBe(2);
             expect(attendees[0].getId()).not.toBeUndefined();
             expect(attendees[1].getId()).toBeUndefined();

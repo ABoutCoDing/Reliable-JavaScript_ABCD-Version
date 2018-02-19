@@ -36,7 +36,7 @@ Conference.attendeeContracts = function() {
       // Conference.attendee(firstName,lastName)에 검사기를 붙인다.
       var funcName = 'attendee';
       registry.attachArgumentsValidator(funcName, Conference,
-          [ 'undefined',          // 이름 없음 (OK)
+           ['undefined',          // 이름 없음 (OK)
             'string',             // 이름 하나만 있음
             'string,string']);    // 이름이 2개 있음
       registry.attachReturnValidator(funcName, Conference, personalInfo);
@@ -59,6 +59,7 @@ Conference.attendeeContracts = function() {
           registry.attachArgumentsValidator('setCheckInNumber', instance, 'nonNegativeInteger');
           registry.attachReturnValidator('setCheckInNumber', instance, 'undefined');
           registry.attachReturnValidator('getCheckInNumber', instance, 'nonNegativeInteger');
+          
           return instance;
         }, Conference);
     }

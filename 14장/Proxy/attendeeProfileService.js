@@ -18,7 +18,7 @@ Conference.attendeeProfileService = function() {
             }
           }
         };
-        xhr.open("GET","profile/" + attendeeId, true);
+        xhr.open("GET", "profile/" + attendeeId, true);
         xhr.send();
       });
     }
