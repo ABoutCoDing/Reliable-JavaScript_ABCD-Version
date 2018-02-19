@@ -26,6 +26,7 @@
         checkInService.checkIn(attendee);
         expect(attendee.isCheckedIn()).toBe(true);
       });
+      
       it('체크인을 등록한다', function() {
         checkInService.checkIn(attendee);
         expect(checkInRecorder.recordCheckIn).toHaveBeenCalledWith(attendee);

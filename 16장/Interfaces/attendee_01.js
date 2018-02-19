@@ -70,4 +70,4 @@ Conference.attendee = function(firstName, lastName, registry) {
 
 // 사용 예
 var registry = ReliableJavaScript.contractRegistry();
-var a = Conference.attendee('Rock','Star', registry); // 예외를 던지지 않음.
+var a = Conference.attendee('Rock', 'Star', registry); // 예외를 던지지 않음.

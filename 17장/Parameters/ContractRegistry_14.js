@@ -27,9 +27,9 @@ ReliableJavaScript.ContractRegistry = function() {
 };
 
 ReliableJavaScript.ContractRegistry.prototype.assert =
-function assert(contractName,obj) {
-  if (!this.fulfills(contractName,obj)) {
-    throw new Error(this.getMessageForFailedContract(contractName,obj));
+function assert(contractName, obj) {
+  if (!this.fulfills(contractName, obj)) {
+    throw new Error(this.getMessageForFailedContract(contractName, obj));
   }
   return this;
 };
@@ -48,7 +48,7 @@ function multipleFulfills(validator, args) {
       if (contractNames[ix].length === 0) {
         continue;
       }
-      if (!self.fulfills(contractNames[ix],args[ix])) {
+      if (!self.fulfills(contractNames[ix], args[ix])) {
         return false;
       }
     }
@@ -61,8 +61,7 @@ function multipleFulfills(validator, args) {
         throw new Error(ReliableJavaScript.ContractRegistry.messages.validatorsInvalid);
       }
     });
-  } else if (typeof validator !== 'function' &&
-  typeof validator !== 'string') {
+  } else if (typeof validator !== 'function' && typeof validator !== 'string') {
     throw new Error(ReliableJavaScript.ContractRegistry.messages.validatorsInvalid);
   }
 
@@ -72,7 +71,7 @@ function multipleFulfills(validator, args) {
   }
 
   if (typeof validator === 'string' ) {
-    return self.fulfills(validator,args);
+    return self.fulfills(validator, args);
   }
   if (Array.isArray(validator)) {
     for (index=0; index<validator.length; ++index) {
@@ -83,13 +82,13 @@ function multipleFulfills(validator, args) {
     return validator.length === 0;
   }
   if (typeof validator === 'function' ) {
-    return validator.apply(self,args);
+    return validator.apply(self, args);
   }
 };
 
 ReliableJavaScript.ContractRegistry.prototype.multipleAssert =
-function multipleAssert(validator,args) {
-  if (!this.multipleFulfills(validator,args)) {
+function multipleAssert(validator, args) {
+  if (!this.multipleFulfills(validator, args)) {
     throw new Error(
       ReliableJavaScript.ContractRegistry.messages.argsFailedContract);
   }
@@ -118,8 +117,7 @@ function attachArgumentsValidator(funcName, funcObj, validator) {
         throw new Error(ReliableJavaScript.ContractRegistry.messages.validatorsInvalid);
       }
     });
-  } else if (typeof validator !== 'function' &&
-  typeof validator !== 'string') {
+  } else if (typeof validator !== 'function' && typeof validator !== 'string') {
     throw new Error(ReliableJavaScript.ContractRegistry.messages.validatorsInvalid);
   }
 
@@ -146,7 +144,7 @@ function attachReturnValidator(funcName, funcObj, contractName) {
   Aop.around(funcName,
     function validateReturn(targetInfo) {
       var ret = Aop.next(targetInfo);
-      self.assert(contractName,ret);
+      self.assert(contractName, ret);
       return ret;
     }, funcObj);
 
@@ -172,12 +170,12 @@ ReliableJavaScript.ContractRegistry.prototype.getMessageForNameNotRegistered =
 function getMessageForNameNotRegistered(
 contractName) {
   return ReliableJavaScript.ContractRegistry.messages.nameMustBeRegistered
-    .replace('_',contractName);
+    .replace('_', contractName);
 };
 
 ReliableJavaScript.ContractRegistry.prototype.getMessageForFailedContract =
 function getMessageForFailedContract(
 contractName, obj) {
   return ReliableJavaScript.ContractRegistry.messages.failedContract
-      .replace('_',contractName)+ obj;
+      .replace('_', contractName) + obj;
 };

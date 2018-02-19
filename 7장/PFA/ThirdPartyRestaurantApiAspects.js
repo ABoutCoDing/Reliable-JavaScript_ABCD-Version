@@ -9,7 +9,7 @@ Aop.around(
     'use strict';
 
     // ThirdParty.restaurantApi()가 반환한 원본 API
-    var api =  Aop.next.call(this, targetInfo);
+    var api =  Aop.next.call(this, targetInfo); // 기존 소스
 
     // API에 추가할 함수 (상수성)
     function getRestaurantsNearConference(cuisine) {

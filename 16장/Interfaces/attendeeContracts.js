@@ -38,4 +38,4 @@ Conference.attendeeContracts(registry);
 
 // 나중에 attendee가 만들어지면
 // 올바르게 생성된 객체인지 애스팩트가 보장한다.
-var a = Conference.attendee('Rock','Star'); // 예외를 던지지 않음.
+var a = Conference.attendee('Rock', 'Star'); // 예외를 던지지 않음.

@@ -33,46 +33,7 @@
   });
 
   describe('advice(targetInfo)', function() {
-    it('첫 번째 실행 시 장식된 함수의 반환값을 반환한다', function() {
-      var value = testObject.testFunction.apply(testObject, args);
-      expect(value).toBe(testValue);
-    });
-
-    it('여러 번 실행 시 장식된 함수의 반환값을 반환한다', function() {
-      var iterations = 3;
-
-      for (var i = 0; i < iterations; i++) {
-        var value = testObject.testFunction.apply(testObject, args);
-        expect(value).toBe(testValue);
-      }
-    });
-
-    it('같은 키 값으로 여러 번 실행해도 장식된 함수만 실행한다', function() {
-      var iterations = 3;
-
-      for (var i = 0; i < iterations; i++) {
-        var value = testObject.testFunction.apply(testObject, args);
-        expect(value).toBe(testValue);
-      }
-      expect(testObject.spyReference.calls.count()).toBe(1);
-    });
-
-    it('고유한 각 키 값마다 꼭 한번씩 장식된 함수를 실행한다', function() {
-        var keyValues = ["value1", "value2", "value3"];
-
-        keyValues.forEach(function iterator(arg) {
-          var value = testObject.testFunction(arg);
-        });
-
-        // 요청을 각각 다시 실행한다. 결과는 캐시에서 가져오므로
-        // 장식된 함수를 실행하지 않는다.
-        keyValues.forEach(function iterator(arg) {
-          var value = testObject.testFunction(arg);
-        });
-
-        // 장식된 함수는 고유값 하나 당 꼭 한번씩 실행되어야 한다
-        expect(testObject.spyReference.calls.count()).toBe(keyValues.length);
-    });
+    
 
     it('주입된 캐시를 인스턴스 간에 공유할 수 있다', function() {
       var sharedCache = {},
@@ -87,7 +48,7 @@
         new Aspects.returnValueCache(sharedCache).advice,
         object2);
 
-      object1.testFunction(args);
+      object1.testFunction(args); // 캐시 생성 
 
       // object2의 testFunction 호출 시
       //  캐시된 object1의 testFunction 호출 결과를 가져온다

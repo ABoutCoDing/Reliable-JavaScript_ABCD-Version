@@ -19,7 +19,7 @@ attendees, profileService, prefetchLimit) {
 
   (function prefetchAll() {
     var ix,
-        sortedAttendees = attendees.slice().sort(function byViews(a,b) {
+        sortedAttendees = attendees.slice().sort(function byViews(a, b) {
           return b.profileViews - a.profileViews;
         });
     for (ix=0; ix<prefetchLimit; ++ix) {

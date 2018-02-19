@@ -1,5 +1,5 @@
 ﻿var Conference = Conference || {};
-Conference.VendorPresentation = function(title, presenter,vendor,product) {
+Conference.VendorPresentation = function(title, presenter, vendor, product) {
   'use strict';
   if (!(this instanceof Conference.VendorPresentation)) {
     throw new Error(
@@ -8,7 +8,7 @@ Conference.VendorPresentation = function(title, presenter,vendor,product) {
   if (!vendor) {
     throw new Error(Conference.VendorPresentation.messages.vendorRequired);
   }
-  Conference.Presentation.call(this,title,presenter);
+  Conference.Presentation.call(this, title, presenter);
   this.vendor = vendor;
   this.product = product;
 };

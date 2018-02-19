@@ -19,7 +19,7 @@ function() {
   }
 
   beforeEach(function() {
-    spyOnProfileService = spyOn(profileService,'getProfile')
+    spyOnProfileService = spyOn(profileService, 'getProfile')
       .and.callFake(function(attendeeId) {
         return makeServiceReturn(attendeeId);
       });
@@ -27,7 +27,7 @@ function() {
 
   describe('초기화', function () {
     it('prefetchLimit가 양수가 아니면 프로필을 전혀 선취하지 않는다', function() {
-      var notPositiveNumbers = [-1,0,undefined,'abc', function() {}];
+      var notPositiveNumbers = [-1, 0, undefined, 'abc', function() {}];
       notPositiveNumbers.forEach(function(prefetchLimit) {
         proxy(attendees, profileService, prefetchLimit);
       });

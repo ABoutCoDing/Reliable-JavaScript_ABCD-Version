@@ -9,7 +9,7 @@
   // decoratedWebApi.getAll()를 실행하면 프라미스가 귀결되어 반환될 것이다
   // done        - 비동기 처리 시 널리 쓰이는 재스민 done() 함수다
   // expectation - 반환된 attendees에 관한 기대식을 적용할 함수
-  function getAllWithSuccessExpectation(done,expectation) {
+  function getAllWithSuccessExpectation(done, expectation) {
     decoratedWebApi.getAll().then(
       function onSuccess(attendees) {
         expectation(attendees);
@@ -42,6 +42,7 @@
             done();
           });
       });
+
       it('getAll을 즉시 실행하면 ID가 채번되지 않은 레코드가 포함된다', function(done) {
         decoratedWebApi.post(attendeeA);
         // post가 귀결되기를 기다리지 않고 getAll을 바로 실행한다
@@ -50,6 +51,7 @@
           expect(attendees[0].getId()).toBeUndefined();
         });
       });
+
       it('getAll을 지연시키면 ID가 채번된 레코드가 포함된다', function(done) {
         decoratedWebApi.post(attendeeA).then(function() {
           // 이번에는 post 귀결 이후 getAll을 실행한다
@@ -59,6 +61,7 @@
           });
         });
       });
+
       it('getAll에 이미 추가된 레코드의 ID들을 채운다', function(done) {
         var recordsFromGetAll, promiseFromPostA;
         // post를 실행하고 그 결과를 기다리지 않는다
@@ -89,6 +92,7 @@
           },5);
         }));
       });
+
       it('원사유로 인해 버려진 프라미스를 반환한다', function(done) {
         decoratedWebApi.post(attendeeA).then(
           function onSuccessfulPost() {
@@ -100,6 +104,7 @@
             done();
           });
       });
+
       it('여전히 getAll을 즉시 실행하면 ID가 채번되지 않은 레코드가 포함된다', function(done) {
         decoratedWebApi.post(attendeeA).catch(function() {
           // 여기서 잡아주지 않으면 버림 프라미스 탓에
@@ -110,6 +115,7 @@
           expect(attendees[0].getId()).toBeUndefined();
         });
       });
+
       it('getAll을 지연시켜 레코드를 배제한다', function(done) {
         decoratedWebApi.post(attendeeA).then(
           function onSuccessfulPost() {
@@ -123,6 +129,7 @@
           });
       });
     });
+
     describe('전송한 참가자에 대해서만 호출할 때', function() {
       it('버림 프라미스를 반환한다', function(done) {
         decoratedWebApi.post(attendeeA);
@@ -145,7 +152,7 @@
 
     describe('원getAll이 성공할 경우', function() {
       it('미결 상태인 레코드가 하나도 없다면 처리된 전체 레코드에 대한 프라미스를 반환한다', function(done) {
-        spyOn(baseWebApi,'getAll').and.returnValue(
+        spyOn(baseWebApi, 'getAll').and.returnValue(
           new Promise( function(resolve,reject) {
             setTimeout(function() {
               resolve([attendeeA,attendeeB]);
@@ -155,10 +162,11 @@
           expect(attendees.length).toBe(2);
         });
       });
+
       it('처리된 전체 레코드 + 미결 상태인 전체 레코드를 반환한다', function(done) {
         decoratedWebApi.post(attendeeA).then(function() {
           decoratedWebApi.post(attendeeB); // 놔둔다.
-          getAllWithSuccessExpectation(done,function onSuccess(attendees) {
+          getAllWithSuccessExpectation(done, function onSuccess(attendees) {
             expect(attendees.length).toBe(2);
             expect(attendees[0].getId()).not.toBeUndefined();
             expect(attendees[1].getId()).toBeUndefined();

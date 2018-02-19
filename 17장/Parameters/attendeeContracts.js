@@ -39,8 +39,8 @@ Conference.attendeeContracts = function() {
           [ 'undefined',          // 이름 없음 (OK)
             'string',             // 이름 하나만 있음
             'string,string']);    // 이름이 2개 있음
-      registry.attachReturnValidator(funcName,Conference,personalInfo);
-      registry.attachReturnValidator(funcName,Conference,checkInManagement);
+      registry.attachReturnValidator(funcName, Conference, personalInfo);
+      registry.attachReturnValidator(funcName, Conference, checkInManagement);
 
       // Conference.attendee(firstName,lastName)의
       // 반환값에 애스팩트를 적용한다.
@@ -49,16 +49,16 @@ Conference.attendeeContracts = function() {
         function attachAspectsToAttendeeObjectLiteral(targetInfo) {
           // attendee 함수가 반환한 attendee 인스턴스
           var instance = Aop.next(targetInfo);
-          registry.attachArgumentsValidator('setId',instance, 'undefined');
-          registry.attachReturnValidator('setId',instance, 'nonNegativeInteger');
-          registry.attachReturnValidator('getId',instance, 'nonNegativeInteger');
-          registry.attachReturnValidator('getFullName',instance, 'string');
-          registry.attachReturnValidator('isCheckedIn',instance, 'boolean');
-          registry.attachReturnValidator('checkIn',instance, 'undefined');
-          registry.attachReturnValidator('undoCheckIn',instance, 'undefined');
-          registry.attachArgumentsValidator('setCheckInNumber',instance, 'nonNegativeInteger');
-          registry.attachReturnValidator('setCheckInNumber',instance, 'undefined');
-          registry.attachReturnValidator('getCheckInNumber',instance, 'nonNegativeInteger');
+          registry.attachArgumentsValidator('setId', instance, 'undefined');
+          registry.attachReturnValidator('setId', instance, 'nonNegativeInteger');
+          registry.attachReturnValidator('getId', instance, 'nonNegativeInteger');
+          registry.attachReturnValidator('getFullName', instance, 'string');
+          registry.attachReturnValidator('isCheckedIn', instance, 'boolean');
+          registry.attachReturnValidator('checkIn', instance, 'undefined');
+          registry.attachReturnValidator('undoCheckIn', instance, 'undefined');
+          registry.attachArgumentsValidator('setCheckInNumber', instance, 'nonNegativeInteger');
+          registry.attachReturnValidator('setCheckInNumber', instance, 'undefined');
+          registry.attachReturnValidator('getCheckInNumber', instance, 'nonNegativeInteger');
           return instance;
         }, Conference);
     }

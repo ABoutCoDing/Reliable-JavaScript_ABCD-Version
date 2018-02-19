@@ -27,9 +27,9 @@ ReliableJavaScript.ContractRegistry = function() {
 };
 
 ReliableJavaScript.ContractRegistry.prototype.assert =
-function assert(contractName,obj) {
-  if (!this.fulfills(contractName,obj)) {
-    throw new Error(this.getMessageForFailedContract(contractName,obj));
+function assert(contractName, obj) {
+  if (!this.fulfills(contractName, obj)) {
+    throw new Error(this.getMessageForFailedContract(contractName, obj));
   }
   return this;
 };
@@ -55,10 +55,10 @@ function multipleFulfills(validator, args) {
   }
 
   if (typeof validator === 'string' ) {
-    return self.fulfills(validator,args);
+    return self.fulfills(validator, args);
   }
   if (typeof validator === 'function' ) {
-    return validator.apply(self,args);
+    return validator.apply(self, args);
   }
 };
 
@@ -79,7 +79,7 @@ funcName, funcObj, contractName) {
   Aop.around(funcName,
     function validateReturn(targetInfo) {
       var ret = Aop.next(targetInfo);
-      self.assert(contractName,ret);
+      self.assert(contractName, ret);
       return ret;
     }, funcObj);
 

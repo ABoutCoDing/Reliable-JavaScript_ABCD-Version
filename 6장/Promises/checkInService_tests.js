@@ -16,19 +16,11 @@
     describe('checkInRecorder 성공 시', function() {
       var checkInNumber = 1234;
       beforeEach(function() {
-        spyOn(checkInRecorder,'recordCheckIn').and.returnValue(
+        spyOn(checkInRecorder, 'recordCheckIn').and.returnValue(
           Promise.resolve(checkInNumber));
       });
 
-      // 5장과 동일한 테스트
-      it('참가자를 체크한 것으로 표시한다', function() {
-        checkInService.checkIn(attendee);
-        expect(attendee.isCheckedIn()).toBe(true);
-      });
-      it('체크인을 등록한다', function() {
-        checkInService.checkIn(attendee);
-        expect(checkInRecorder.recordCheckIn).toHaveBeenCalledWith(attendee);
-      });
+
 
       // 6장에서 추가된 테스트
       it("참가자의 checkInNumber를 지정한다", function(done) {
@@ -47,7 +39,7 @@
     describe('checkInRecorder 실패 시', function() {
       var recorderError = '체크인 등록 실패!';
       beforeEach(function() {
-        spyOn(checkInRecorder,'recordCheckIn').and.returnValue(
+        spyOn(checkInRecorder, 'recordCheckIn').and.returnValue(
           Promise.reject(new Error(recorderError)));
         spyOn(attendee,'undoCheckIn');
       });

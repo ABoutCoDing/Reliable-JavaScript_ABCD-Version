@@ -27,7 +27,7 @@ ReliableJavaScript.contractRegistry = function() {
 
     getMessageForNameNotRegistered: function getMessageForNameNotRegistered(
     contractName) {
-      return this.messages.nameMustBeRegistered.replace('_',contractName);
+      return this.messages.nameMustBeRegistered.replace('_', contractName);
     },
   };
 };

@@ -43,6 +43,7 @@
             done();
           });
       });
+
       it('getAll을 즉시 실행하면 ID가 채번되지 않은 레코드가 포함된다', function(done) {
         decoratedWebApi.post(attendeeA);
         // post가 귀결되기를 기다리지 않고 getAll을 바로 실행한다
@@ -51,6 +52,7 @@
           expect(attendees[0].getId()).toBeUndefined();
         });
       });
+
       it('getAll을 지연시키면 ID가 채번된 레코드가 포함된다', function(done) {
         decoratedWebApi.post(attendeeA).then(function() {
           // 이번에는 post 귀결 이후 getAll을 실행한다
@@ -60,6 +62,7 @@
           });
         });
       });
+
       it('getAll에 이미 추가된 레코드의 ID들을 채운다', function(done) {
         var recordsFromGetAll, promiseFromPostA;
         // post를 실행하고 그 결과를 기다리지 않는다
@@ -83,13 +86,14 @@
     describe('원post가 실패할 경우', function() {
       beforeEach(function() {
         // 다음 차례가 되어서야 비로소 원 post가 실패하게 만든다.
-       spyOn(baseWebApi,'post').and.returnValue(
-        new Promise( function(resolve,reject) {
+       spyOn(baseWebApi, 'post').and.returnValue(
+        new Promise( function(resolve, reject) {
           setTimeout(function() {
             reject(underlyingFailure);
           },5);
         }));
       });
+
       it('원사유로 인해 버려진 프라미스를 반환한다', function(done) {
         decoratedWebApi.post(attendeeA).then(
           function onSuccessfulPost() {
@@ -102,6 +106,7 @@
           });
       });
     });
+
     describe('전송한 참가자에 대해서만 호출할 때', function() {
       it('버림 프라미스를 반환한다', function(done) {
         decoratedWebApi.post(attendeeA);
@@ -124,8 +129,8 @@
 
     describe('원getAll이 성공할 경우', function() {
       it('미결 상태인 레코드가 하나도 없다면 처리된 전체 레코드에 대한 프라미스를 반환한다', function(done) {
-        spyOn(baseWebApi,'getAll').and.returnValue(
-          new Promise( function(resolve,reject) {
+        spyOn(baseWebApi, 'getAll').and.returnValue(
+          new Promise( function(resolve, reject) {
             setTimeout(function() {
               resolve([attendeeA,attendeeB]);
             },1);
@@ -134,6 +139,7 @@
           expect(attendees.length).toBe(2);
         });
       });
+
       it('처리된 전체 레코드 + 미결 상태인 전체 레코드를 반환한다', function(done) {
         decoratedWebApi.post(attendeeA).then(function() {
           decoratedWebApi.post(attendeeB); // 놔둔다.
@@ -148,7 +154,7 @@
 
     describe('원getAll이 실패할 경우', function() {
       it('원버림 프라미스를 반환한다', function(done) {
-        spyOn(baseWebApi,'getAll').and.returnValue(
+        spyOn(baseWebApi, 'getAll').and.returnValue(
           new Promise( function(resolve, reject) {
             setTimeout(function() {
               reject(underlyingFailure);

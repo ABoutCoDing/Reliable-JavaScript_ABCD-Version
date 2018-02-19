@@ -8,6 +8,7 @@ Conference.attendeeWebApiDecorator = function(baseWebApi) {
     },
 
     getAll: function getAll() {
+      // baseWebApi 실행
       return baseWebApi.getAll();
     }
   };

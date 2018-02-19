@@ -30,29 +30,6 @@
   });
 
   describe('advice(targetInfo)', function() {
-    it('첫 번째 실행 시 장식된 함수의 반환값을 반환한다', function() {
-      var value = testObject.testFunction.apply(testObject, args);
-      expect(value).toBe(testValue);
-    });
-
-    it('여러 번 실행 시 장식된 함수의 반환값을 반환한다', function() {
-      var iterations = 3;
-
-      for (var i = 0; i < iterations; i++) {
-        var value = testObject.testFunction.apply(testObject, args);  // testObject.testFunction(arg)
-        expect(value).toBe(testValue);
-      }
-    });
-
-    it('같은 키 값으로 여러 번 실행해도 장식된 함수만 실행한다', function() {
-      var iterations = 3;
-
-      for (var i = 0; i < iterations; i++) {
-        var value = testObject.testFunction.apply(testObject, args);
-        expect(value).toBe(testValue);
-      }
-      expect(spyReference.calls.count()).toBe(1);
-    });
 
     it('고유한 각 키 값마다 꼭 한번씩 장식된 함수를 실행한다', function() {
         var keyValues = ["value1", "value2", "value3"];
