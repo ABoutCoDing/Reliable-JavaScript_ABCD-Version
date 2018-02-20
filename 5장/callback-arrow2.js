@@ -3,16 +3,20 @@ CallbackArrow.rootFunction = function(){
     CallbackArrow.firstFunction(CallbackArrow.firstCallback);
 };
 CallbackArrow.firstFunction = function(callback1){
-    callback1(arg);
+    callback1(1);
+    // callback1(arg);
 };
 CallbackArrow.secondFunction = function(callback2){
-    callback2(arg);
+    callback2(2);
+    // callback2(arg);
 };
 CallbackArrow.thirdFunction = function(callback3){
-    callback3(arg);
+    callback3(3);
+    // callback3(arg);
 };
 CallbackArrow.fourthFunction = function(callback4){
-    callback4(arg);
+    callback4(4);
+    // callback4(arg);
 };
 
 CallbackArrow.firstCallback = function(){
@@ -25,8 +29,10 @@ CallbackArrow.secondCallback = function(){
 };
 CallbackArrow.thirdCallback = function(){
     // logic in the third callback
-    CallBackArrow.fourthFunction(CallbackArrow.fourthCallback);
+    CallbackArrow.fourthFunction(CallbackArrow.fourthCallback);
 };
 CallbackArrow.fourthCallback = function(){
     // logic in the fourth callback
 };
+
+CallbackArrow.rootFunction();
