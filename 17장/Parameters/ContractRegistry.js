@@ -162,9 +162,12 @@ function attachArgumentsValidator(funcName, funcObj, validator) {
     throw new Error(ReliableJavaScript.ContractRegistry.messages.validatorsInvalid);
   }
 
-  Aop.before(funcName, function validateArguments() {
+  Aop.before(
+    funcName, 
+    function validateArguments() {
       self.multipleAssert(validator, arguments);
-  }, funcObj );
+    }, 
+    funcObj );
 
   return this;
 };
