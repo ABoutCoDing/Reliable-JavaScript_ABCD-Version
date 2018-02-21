@@ -27,7 +27,7 @@
     });
   });
 
-  describe('fulfills(contractName,obj)', function() {
+  describe('fulfills(contractName, obj)', function() {
 
     it('contractName이 레지스트리에 없으면 예외를 던진다', function() {
       function expectThrow(contractName) {
