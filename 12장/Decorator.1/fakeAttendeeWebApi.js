@@ -14,7 +14,7 @@ Conference.fakeAttendeeWebApi = function() {
     // 데이터베이스에서 할당된 PK(attendeeId)가 들어있을 것이다.
     // 프라미스를 버려야 하는 테스트라면 스파이를 이용하자.
     post: function post(attendee) {
-      return new Promise(function(resolve, reject) {
+      return new Promise( function(resolve, reject) {
         // 5 밀리초에 불과하지만
         // setTimeout은 프라미스 귀결을 다음 차례로 지연시킨다
         setTimeout(function pretendPostingToServer() {
@@ -44,3 +44,4 @@ Conference.fakeAttendeeWebApi = function() {
   };
 };
 
+module.exports = Conference;

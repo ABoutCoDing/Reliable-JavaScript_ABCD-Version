@@ -31,7 +31,7 @@ Conference.WidgetSandbox = function() {
       throw new Error(Conference.WidgetSandbox.messages.unknownTool + toolName);
     }
 
-    Conference.WidgetTools[toolName](this);
+    Conference.WidgetTools[toolName](this); // this 가 sandbox
   }, this); // 콜백 내에서 'this'가 sandbox 인스턴스를 가리키도록 보장한다
 
   var widget = widgetFunction(this);

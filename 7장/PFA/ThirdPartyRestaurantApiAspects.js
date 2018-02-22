@@ -1,7 +1,7 @@
 ﻿// ThirdParty.restaurantApi()에 getRestaurantsNearConference 멤버를 추가한다
 
 Aop.around(
-  // 반환값을 수정해야 할 함수
+  // 반환값을 수정해야 할 함수 
   'restaurantApi',
 
   // 반환값을 수정하는 함수 advice

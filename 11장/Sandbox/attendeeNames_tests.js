@@ -49,7 +49,7 @@
     it("참가자가 없을 경우 빈 배열로 귀결한다", function(done) {
 
       spyOn(attendeeWebApi, 'getAll').and.returnValue(
-        new Promise( function(resolve, reject) {
+        new Promise(function(resolve, reject) {
           resolve([]);
         })
       );
@@ -67,7 +67,7 @@
     it("참가자가 있을 경우 해당 이름으로 귀결한다", function(done) {
 
       spyOn(attendeeWebApi, 'getAll').and.returnValue(
-        new Promise( function(resolve, reject) {
+        new Promise(function(resolve, reject) {
           resolve(attendees);
         })
       );

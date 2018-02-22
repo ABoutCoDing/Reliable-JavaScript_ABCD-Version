@@ -21,6 +21,7 @@
         done();
       });
   }
+  
   beforeEach(function() {
     baseWebApi = Conference.fakeAttendeeWebApi();
     decoratedWebApi = Conference.attendeeWebApiDecorator(baseWebApi);
@@ -96,7 +97,7 @@
           new Promise( function(resolve, reject) {
             setTimeout(function() {
               resolve([attendeeA, attendeeB]);
-            },5);
+            }, 5);
           }));
         getAllWithSuccessExpectation(done, function onSuccess(attendees) {
           expect(attendees.length).toBe(2);

@@ -35,7 +35,7 @@
 
       beforeEach(function() {
         // 다음 차례가 되어서야 비로소 원post가 실패하게 만든다.
-       spyOn(baseWebApi,'post').and.returnValue(
+       spyOn(baseWebApi, 'post').and.returnValue(
         new Promise( function(resolve, reject) {
           setTimeout(function() {
             reject(underlyingFailure);

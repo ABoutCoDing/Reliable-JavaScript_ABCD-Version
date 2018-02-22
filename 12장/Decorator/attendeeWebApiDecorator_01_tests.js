@@ -16,7 +16,7 @@
 
       it('원버림 프라미스를 반환한다', function(done) {
         spyOn(baseWebApi, 'getAll').and.returnValue(
-          new Promise( function(resolve, reject) {
+          new Promise(function(resolve, reject) {
             setTimeout(function() {
               reject(underlyingFailure);
             }, 1);
