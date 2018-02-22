@@ -24,3 +24,5 @@ Aspects.returnValueCache = function() {
     }
   };
 };
+
+module.exports = Aspects;

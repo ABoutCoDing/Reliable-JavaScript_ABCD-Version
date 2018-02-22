@@ -12,7 +12,8 @@ Aop.around(
 
     // getRestaurantsWithinRadius 함수를 장식하여 메모이제이션 추가
     Aop.around('getRestaurantsWithinRadius',
-      Aspects.returnValueCache().advice, api);
+      Aspects.returnValueCache().advice, 
+      api);
 
     // 고친 API를 반환한다
     return api;
@@ -33,7 +34,7 @@ Aop.around(
     'use strict';
 
     // ThirdParty.restaurantApi()가 반환한 원본 API
-    var api =  Aop.next.call(this,targetInfo);
+    var api = Aop.next.call(this,targetInfo);
 
     // API에 추가할 함수
     function getRestaurantsNearConference(cuisine) {

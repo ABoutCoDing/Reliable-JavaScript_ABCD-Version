@@ -1,4 +1,6 @@
-﻿Aop = {
+﻿// AOP 라이브러리(2장)
+
+Aop = {
   around: function(fnName, advice, fnObj) {
     var originalFn = fnObj[fnName];
     fnObj[fnName] = function () {

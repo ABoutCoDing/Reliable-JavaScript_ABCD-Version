@@ -1,4 +1,6 @@
-﻿var Conference = Conference || {};
+﻿var ThirdParty = require("./ThirdPartyRestaurantApi.js");
+
+var Conference = Conference || {};
 
 Conference.memoizedRestaurantApi = function(thirdPartyApi) {
   'use strict';
@@ -12,9 +14,11 @@ Conference.memoizedRestaurantApi = function(thirdPartyApi) {
         return cache[cuisine];
       }
 
-      var returnedPromise = api.getRestaurantsNearConference(cuisine);
+      var returnedPromise = ThirdParty.restaurantApi().getRestaurantsNearConference(cuisine);
       cache[cuisine] = returnedPromise;
       return returnedPromise;
     }
   };
 };
+
+module.exports = Conference;

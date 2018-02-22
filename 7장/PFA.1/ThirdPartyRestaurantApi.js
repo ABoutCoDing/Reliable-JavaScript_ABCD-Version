@@ -17,7 +17,6 @@ ThirdParty.restaurantApi = function() {
         };
         resolve(restaurant);
       });
-
     }
   };
 };
