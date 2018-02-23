@@ -97,7 +97,7 @@
         }).toThrow(new Error(
           registry.getMessageForNameNotRegistered(contractName)));
       }
-      [undefined,'abc'].forEach(expectThrow);
+      [undefined, 'abc'].forEach(expectThrow);
     });
 
     it('객체가 규약을 지키면 true를 반환한다', function() {
