@@ -1,4 +1,4 @@
-﻿describe('attendeeProfileProxy(attendees, profileService,prefetchLimit)',
+﻿describe('attendeeProfileProxy(attendees, profileService, prefetchLimit)',
 function() {
   'use strict';
 
