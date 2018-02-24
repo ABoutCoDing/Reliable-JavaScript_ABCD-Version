@@ -8,4 +8,4 @@ incrementValue();  // 1
 incrementValue();  // 2
 incrementValue();  // 3
 
-console.log("최종 결괏값: " + incrementValue.val);  // ???
+console.log("최종 결과값: " + incrementValue.val);  // ???
