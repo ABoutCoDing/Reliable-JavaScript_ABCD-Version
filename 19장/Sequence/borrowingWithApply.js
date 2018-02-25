@@ -13,7 +13,7 @@ Conference.polyfills.forEachWithEarlyAspect = function(callbackFcn, thisObj) {
   }
 };
 
-Aop.before('forEachWithEarlyAspect',function isObjectWithLength(obj) {
+Aop.before('forEachWithEarlyAspect', function isObjectWithLength(obj) {
   if (typeof(obj) !== 'object' || isNaN(this.length)) {
     throw new Error('forEach의 호출부는 유사 배열 타입이어야 합니다.');
   }
@@ -46,6 +46,6 @@ objWithLateAspect.forEach = function() {
 // 'call'을 사용하기 때문에 애스팩트를 나중에 적용해도 늦은 건 아니다.
 Aop.before('forEachWithLateAspect', function isObjectWithLength(obj) {
   if (typeof(obj) !== 'object' || isNaN(this.length)) {
-  throw new Error('forEach의 호출부는 유사 배열 타입이어야 합니다.');
+    throw new Error('forEach의 호출부는 유사 배열 타입이어야 합니다.');
   }
 }, Conference.polyfills);

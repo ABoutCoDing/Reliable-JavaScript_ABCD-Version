@@ -234,7 +234,7 @@
 
       it('validator에서 콤마가 연속된 곳에 있는 원소는 검사를 건너뛴다', function() {
         var validator=['a,, , d'],
-            args=[1,2,3,4];
+            args=[1, 2, 3, 4];
         spyOn(registry, 'fulfills').and.returnValue(true);
         registry.multipleFulfills(validator, args);
         expect(registry.fulfills).toHaveBeenCalledWith('a', 1);
@@ -297,7 +297,7 @@
       expect(registry.multipleFulfills).toHaveBeenCalledWith(validator, args);
     });
 
-    it('multipleFulfills(validator,args)가 true를 반환하면 예외를 던지지 않는다', function() {
+    it('multipleFulfills(validator, args)가 true를 반환하면 예외를 던지지 않는다', function() {
       var validator = 'contractName',
           args = [123];
       spyOn(registry, 'multipleFulfills').and.returnValue(true);
