@@ -6,10 +6,7 @@ var result = 0;
 
 function processKey(key, value) {
     if (typeof value !== 'function' ) {
-        console.log(key);
-        console.log(value);
         result = result * 100 + value;
-        console.log("11 : " + result * 100 + value);
     }
 }
 

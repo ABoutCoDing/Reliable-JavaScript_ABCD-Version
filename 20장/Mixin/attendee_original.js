@@ -12,6 +12,7 @@ Conference.attendee = function(firstName, lastName) {
     setId: function(id) {
       attendeeId = id;
     },
+    
     getId: function() {
       return attendeeId;
     },
