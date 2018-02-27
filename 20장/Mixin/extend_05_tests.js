@@ -129,8 +129,8 @@
     expect(function() {
       ReliableJavaScript.extend(target, mixin);
     })
-   .toThrowError(
-     ReliableJavaScript.extend.messages.triedToReplace + "baseProperty"
+    .toThrowError(
+      ReliableJavaScript.extend.messages.triedToReplace + "baseProperty"
     );
   });
 });
