@@ -13,7 +13,7 @@ Conference.polyfills.forEachWithEarlyAspect = function(callbackFcn, thisObj) {
   }
 };
 
-Aop.before('forEachWithEarlyAspect',function isObjectWithLength(obj) {
+Aop.before('forEachWithEarlyAspect', function isObjectWithLength(obj) {
   if (typeof(obj) !== 'object' ||
   !(typeof this.length === 'number' && isFinite(this.length) &&
   Math.floor(this.length) === this.length && this.length >= 0)) {
