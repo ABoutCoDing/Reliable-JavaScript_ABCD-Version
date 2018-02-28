@@ -18,7 +18,7 @@
     });
 
     it("target.setId가 이미 존재할 경우 예외를 던진다", function() {
-      target.setId = function setId() { };
+      target.setId = function setId(){ };
       expect(function shouldThrow() {
         Conference.mixins.addId.call(target);
       })
