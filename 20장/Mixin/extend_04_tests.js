@@ -68,10 +68,10 @@
       // mixinBase를 프로토타입으로 mixin 객체를 생성한다
       mixin = Object.create(mixinBase);
 
-      mixin.mixinProperty = "믹스인 프로퍼티",
-      mixin.mixinMethod = function mixinMethod() {
-        return "믹스인 메소드라능";
-      };
+    mixin.mixinProperty = "믹스인 프로퍼티",
+    mixin.mixinMethod = function mixinMethod() {
+      return "믹스인 메소드라능";
+    };
 
     ReliableJavaScript.extend(target, mixin);
 
