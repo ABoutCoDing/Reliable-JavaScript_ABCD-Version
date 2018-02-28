@@ -111,20 +111,20 @@
 
   it("mixin이 상속한 프로퍼티를 교체하려고 하면 예외를 던진다", function() {
     var
-        targetBase = {
-          baseProperty : "베이스 프로퍼티",
-          baseMethod : function baseMethod() {
-            return "베이스 메소드";
-          }
-        },
-        target = Object.create(targetBase),
-        mixin = {
-          // target은 targetBase로부터 baseProperty를 상속한다
-          baseProperty : "프로퍼티 2",
-          method2 : function method2() {
-            return "믹스인의 메소드 2";
-          }
-        };
+      targetBase = {
+        baseProperty : "베이스 프로퍼티",
+        baseMethod : function baseMethod() {
+          return "베이스 메소드";
+        }
+      },
+      target = Object.create(targetBase),
+      mixin = {
+        // target은 targetBase로부터 baseProperty를 상속한다
+        baseProperty : "프로퍼티 2",
+        method2 : function method2() {
+          return "믹스인의 메소드 2";
+        }
+      };
 
     expect(function() {
       ReliableJavaScript.extend(target, mixin);
