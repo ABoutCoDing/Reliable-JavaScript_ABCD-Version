@@ -21,14 +21,14 @@ function() {
 
   describe('초기화', function () {
     it('prefetchLimit가 양수가 아니면 프로필을 전혀 선취하지 않는다', function() {
-      var notPositiveNumbers = [-1, 0, undefined, 'abc', function() {}];
+      var notPositiveNumbers = [-1, 0, undefined, 'abc', function(){}];
       notPositiveNumbers.forEach(function(prefetchLimit) {
         proxy(attendees, profileService, prefetchLimit);
       });
       expect(spyOnProfileService.calls.count()).toBe(0);
     });
     
-    it('prefetchLimit가 참가자 인원수를 초과하면 전체 프로필을 선취한다', function() {
+    it('prefetchLimit가 참가자 인원수를 초과하면 전체 프로필을 선취한다', function(){
       proxy(attendees, profileService, attendees.length+1);
       expect(spyOnProfileService.calls.count()).toBe(attendees.length);
     });

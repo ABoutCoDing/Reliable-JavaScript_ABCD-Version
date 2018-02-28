@@ -140,7 +140,7 @@ ReliableJavaScript.ContractRegistry.prototype.attachArgumentsValidator =
 function attachArgumentsValidator(funcName, funcObj, validator) {
   var self = this;
   function validateStringOrUndefined(contractName) {
-    if (contractName!==undefined && typeof contractName !== 'string') {
+    if (contractName !== undefined && typeof contractName !== 'string') {
       throw new Error(ReliableJavaScript.ContractRegistry.messages.namesMustBeStringArray);
     }
   }

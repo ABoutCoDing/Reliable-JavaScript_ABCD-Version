@@ -27,10 +27,12 @@ function() {
       });
       expect(spyOnProfileService.calls.count()).toBe(0);
     });
+
     it('prefetchLimit가 참가자 인원수를 초과하면 전체 프로필을 선취한다', function() {
       proxy(attendees, profileService, attendees.length+1);
       expect(spyOnProfileService.calls.count()).toBe(attendees.length);
     });
+    
     it("가장 인기 있는 프로필부터 'prefetchLimit'개 만큼 선취한다", function() {
       var prefetchLimit = 3;
       proxy(attendees, profileService, prefetchLimit);
