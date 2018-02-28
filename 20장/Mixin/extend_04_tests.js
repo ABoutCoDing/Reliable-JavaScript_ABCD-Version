@@ -59,16 +59,14 @@
 
   it("mixin이 상속한 프로퍼티는 추가하지 않는다", function() {
     var target = {},
-
-        mixinBase = {
-          baseProperty: "베이스 프로퍼티",
-          baseMethod: function baseMethod() {
-            return "베이스 메소드라구요";
-          }
-        },
-
-        // mixinBase를 프로토타입으로 mixin 객체를 생성한다
-        mixin = Object.create(mixinBase);
+      mixinBase = {
+        baseProperty: "베이스 프로퍼티",
+        baseMethod: function baseMethod() {
+          return "베이스 메소드라구요";
+        }
+      },
+      // mixinBase를 프로토타입으로 mixin 객체를 생성한다
+      mixin = Object.create(mixinBase);
 
       mixin.mixinProperty = "믹스인 프로퍼티",
       mixin.mixinMethod = function mixinMethod() {
