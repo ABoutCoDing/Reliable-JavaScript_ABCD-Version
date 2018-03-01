@@ -2,9 +2,10 @@ var transportScheduler = require('./transportScheduler_02.js'),
     companyFactory = require('./transportCompanyFactory.js'),
     auditService = require('./transportCompanyAuditService.js');
     
-
 var scheduler 
-    = transportScheduler.transportScheduler(auditService.transportCompanyAuditService(), companyFactory.transportCompanyFactory());
+    = transportScheduler.transportScheduler(
+        auditService.transportCompanyAuditService(), 
+        companyFactory.transportCompanyFactory());
 
 var transportDetails = {
     company: "redi",
@@ -18,5 +19,7 @@ scheduleTransportation.then(function(confirmation) {
     },
     function(){}
 );
+
+console.log(Conference.transportCompanyAuditService);
 
 

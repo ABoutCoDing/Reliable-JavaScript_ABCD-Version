@@ -45,6 +45,7 @@
     it('객체가 규약을 지키면 true를 반환한다', function() {
       expect(registry.fulfills(isArray, ary)).toBe(true);
     });
+    
     it('객체가 규약을 위반하면 false를 반환한다', function() {
       expect(registry.fulfills(isArray, 'not an array')).toBe(false);
     });

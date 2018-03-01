@@ -12,7 +12,7 @@ Conference.transportCompanyFactory = function() {
       // 어떤 운송회사 모듈을 생성/반환해야 할지 결정한다
       // 상황에 따라 반환객체(운송회사)가 달라짐
       if ( transportDetails.hasOwnProperty("company")) {
-        if (transportDetails.company === "redi" ) {
+        if (transportDetails.company === "redi") {
           return new redicap.redicabTransportCompany(http.httpService());
         }
         return new yellowcap.redicabTransportCompany(http.httpService());

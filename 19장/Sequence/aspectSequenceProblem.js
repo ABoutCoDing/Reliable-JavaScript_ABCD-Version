@@ -40,7 +40,7 @@ var objWithLateAspect = { /* length 프로퍼티 없음 */ };
 objWithLateAspect.forEach = Conference.polyfills.forEachWithLateAspect;
 
 // 애스팩트 적용이 너무 늦었다!
-Aop.before('forEachWithLateAspect',function isObjectWithLength(obj) {
+Aop.before('forEachWithLateAspect', function isObjectWithLength(obj) {
   if (typeof(obj) !== 'object' ||
   !(typeof this.length === 'number' && isFinite(this.length) &&
   Math.floor(this.length) === this.length && this.length >= 0)) {

@@ -61,6 +61,7 @@ function() {
       expect(profile).toBe(makeServiceReturn(attendeeId));
       expect(spyOnProfileService.calls.count()).toBe(prefetchLimit);
     });
+    
     it('요청 시 비선취 프로필을 반환한다', function() {
       var attendeeId = 11,
           profile = proxyInstance.getProfile(attendeeId);

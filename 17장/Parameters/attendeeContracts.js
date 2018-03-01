@@ -42,7 +42,7 @@ Conference.attendeeContracts = function() {
       registry.attachReturnValidator(funcName, Conference, personalInfo);
       registry.attachReturnValidator(funcName, Conference, checkInManagement);
 
-      // Conference.attendee(firstName,lastName)의
+      // Conference.attendee(firstName, lastName)의
       // 반환값에 애스팩트를 적용한다.
       // 여기서 반환값은 마침 객체 리터럴이다.
       Aop.around(funcName,
