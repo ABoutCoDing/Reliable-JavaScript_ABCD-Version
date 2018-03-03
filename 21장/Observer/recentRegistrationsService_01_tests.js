@@ -60,6 +60,7 @@
         expect(service.hasObserver(observer1)).toBe(true);
         expect(service.hasObserver(observer2)).toBe(false);
       });
+      
       it("추가한 관찰자를 삭제한다", function() {
         service.addObserver(observer1);
         expect(service.hasObserver(observer1)).toBe(true);
@@ -96,6 +97,7 @@
         service.updateObservers(registration);
         expect(observer1.update).toHaveBeenCalledWith(registration);
       });
+
       it("삭제된 관찰자의 update 함수는 실행하지 않는다", function() {
         service.addObserver(observer1);
         service.removeObserver(observer1);
