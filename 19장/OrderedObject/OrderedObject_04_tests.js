@@ -25,7 +25,7 @@
     });
 
     it('빌릴 수 있다', function() {
-      var borrower = { c:11, a:22, b:33 };
+      var borrower = {c:11, a:22, b:33};
       ReliableJavaScript.utilities.borrow(borrower, orderedObject, 'forEachKey');
       borrower.forEachKey(processKey);
       expect(result).toBe(223311);

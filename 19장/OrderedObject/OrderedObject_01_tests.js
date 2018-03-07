@@ -4,7 +4,7 @@
       result;
 
   function processKey(key, value) {
-    if (typeof value !== 'function' ) {
+    if (typeof value !== 'function') {
       result = result * 100 + value;
     }
   }
@@ -23,7 +23,7 @@
   });
 
   it('빌릴 수 있다', function() {
-    var borrower = { c:11, a:22, b:33 };
+    var borrower = {c:11, a:22, b:33};
     ReliableJavaScript.utilities.borrow(
       borrower, Conference.OrderedObject.prototype, 'forEachKey');
     borrower.forEachKey(processKey);
